@@ -297,5 +297,7 @@ public class MyArrayList<E> implements List<E> {
 
         System.out.println(2 << 1);
 
+        System.out.println();
+
     }
 }
