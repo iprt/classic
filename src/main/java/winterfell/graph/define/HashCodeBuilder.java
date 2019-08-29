@@ -1,4 +1,4 @@
-package winterfell.graph;
+package winterfell.graph.define;
 
 import java.util.HashMap;
 
