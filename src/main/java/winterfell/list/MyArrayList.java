@@ -1,6 +1,5 @@
 package winterfell.list;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -62,6 +61,7 @@ public class MyArrayList<E> implements List<E> {
     public Iterator<E> iterator() {
         return null;
     }
+
 
     @Override
     public Object[] toArray() {
@@ -183,13 +183,19 @@ public class MyArrayList<E> implements List<E> {
     @Override
     public void add(int index, E element) {
         checkIndex(index);
-        Object[] before = new Object[index];
         Object[] after = new Object[size - index - 1];
         if (size + 1 > currentCapacity) {
-
-
+            // 扩容
+            int newCapacity = currentCapacity << 1;
+            Object[] newData = new Object[newCapacity];
+            System.arraycopy(data, 0, newData, 0, size);
+            this.data = newData;
+            this.currentCapacity = newCapacity;
         }
-
+        System.arraycopy(this.data, index, after, 0, after.length);
+        this.data[index] = element;
+        System.arraycopy(after, 0, this.data, index + 1, after.length);
+        size++;
     }
 
     @Override
@@ -223,7 +229,64 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public ListIterator<E> listIterator() {
-        return null;
+        return new MyListIterator<>();
+    }
+
+    private class MyListIterator<E> implements ListIterator<E> {
+
+        private int index;
+
+        private int max;
+
+        public MyListIterator() {
+            this.index = 0;
+            this.max = size;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+
+        @Override
+        public E next() {
+            return null;
+        }
+
+        @Override
+        public boolean hasPrevious() {
+            return false;
+        }
+
+        @Override
+        public E previous() {
+            return null;
+        }
+
+        @Override
+        public int nextIndex() {
+            return 0;
+        }
+
+        @Override
+        public int previousIndex() {
+            return 0;
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+        @Override
+        public void set(E e) {
+
+        }
+
+        @Override
+        public void add(E e) {
+
+        }
     }
 
     @Override
@@ -284,18 +347,16 @@ public class MyArrayList<E> implements List<E> {
 
 
     public static void main(String[] args) {
+        List<String> list = new MyArrayList<>(10);
 
-        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
 
-        list.add("java");
+            list.add("index" + i);
+        }
 
-        String[] arr = new String[0];
+        list.add(5, "index");
 
-        String[] listarr = list.toArray(arr);
-
-        System.out.println(listarr.equals(arr));
-
-        System.out.println(2 << 1);
+        System.out.println("java");
 
     }
 }
