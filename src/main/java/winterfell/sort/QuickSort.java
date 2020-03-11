@@ -1,4 +1,4 @@
-package winterfell.quicksort;
+package winterfell.sort;
 
 import org.apache.commons.lang3.RandomUtils;
 
