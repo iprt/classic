@@ -20,7 +20,7 @@ public class WeightedGraph<Element, Relation extends Comparable> implements Grap
     private boolean direct;
 
     /**
-     * 临街矩阵表示的图 利用set作为边的集合提高效率
+     * 临接矩阵表示的图 利用set作为边的集合提高效率
      */
     private Map<Point<Element>, Set<Edge<Element, Relation>>> graph;
 

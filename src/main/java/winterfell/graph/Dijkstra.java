@@ -29,23 +29,23 @@ public class Dijkstra {
     /**
      * 指定源节点
      */
-    private Point<String> source;
+    private final Point<String> source;
 
     /**
      * 数据辅助结构
      * 1.标记点有没有被访问
      */
-    private Map<Point<String>, Boolean> marked;
+    private final Map<Point<String>, Boolean> marked;
 
     /**
      * 2.记录这个点是从哪一条边过来的
      */
-    private Map<Point<String>, Edge<String, Double>> from;
+    private final Map<Point<String>, Edge<String, Double>> from;
 
     /**
      * 3.记录这个点到source的最短距离
      */
-    private Map<Point<String>, Double> distTo;
+    private final Map<Point<String>, Double> distTo;
 
     /**
      * 4.辅助的数据结构 在点为数字的时候 使用索引堆 主要为了用extractMin的方法
@@ -53,7 +53,7 @@ public class Dijkstra {
      */
 //    private Map<Point<String>, Double> fakeIndexMinHeap;
 
-    private PriorityQueue<PointDistance> minHeap;
+    private final PriorityQueue<PointDistance> minHeap;
 
     public Dijkstra(Graph<String, Double> graph, Point<String> source) {
         this.g = graph;
@@ -166,6 +166,7 @@ public class Dijkstra {
 //        fakeIndexMinHeap.remove(min);
         PointDistance min = minHeap.poll();
 //        return min;
+        assert min != null;
         return min.getPoint();
     }
 

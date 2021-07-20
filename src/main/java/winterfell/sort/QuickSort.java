@@ -12,12 +12,12 @@ public class QuickSort {
     private QuickSort() {
     }
 
-    public static <T extends Comparable> void sort(T[] arr) {
+    public static <T extends Comparable<T>> void sort(T[] arr) {
         int n = arr.length;
         sort(arr, 0, n - 1);
     }
 
-    private static <T extends Comparable> void sort(T[] arr, int left, int right) {
+    private static <T extends Comparable<T>> void sort(T[] arr, int left, int right) {
         if (left > right) {
             return;
         }
@@ -26,8 +26,18 @@ public class QuickSort {
         sort(arr, partition + 1, right);
     }
 
-    private static <T extends Comparable> int partition(T[] arr, int left, int right) {
-//        T v = arr[left];
+    /**
+     * 核心 partition
+     *
+     * @param <T>   the type parameter
+     * @param arr   the arr
+     * @param left  the left
+     * @param right the right
+     * @return the int
+     */
+    static <T extends Comparable<T>> int partition(T[] arr, int left, int right) {
+        // T v = arr[left];
+
         /*
          *  v 随机化
          */
@@ -53,7 +63,7 @@ public class QuickSort {
         return j;
     }
 
-    private static <T extends Comparable> void swap(T[] arr, int a, int b) {
+    private static <T extends Comparable<T>> void swap(T[] arr, int a, int b) {
         T t = arr[a];
         arr[a] = arr[b];
         arr[b] = t;
