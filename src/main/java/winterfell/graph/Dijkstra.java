@@ -5,19 +5,13 @@ import winterfell.graph.define.Edge;
 import winterfell.graph.define.Graph;
 import winterfell.graph.define.Point;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.PriorityQueue;
-import java.util.Stack;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author :       zhuzhenjie
- * Company :      Beijing Tepia (Wuhan R&D Center)\
  * 最短路径算法的实现 路径要可叠加
+ *
+ * @author zhuzhenjie
  **/
 public class Dijkstra {
 

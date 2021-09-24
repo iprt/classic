@@ -3,8 +3,9 @@ package winterfell.graph.define;
 import java.util.HashMap;
 
 /**
- * @author zhuzhenjie
  * 自定义图节点hashcode的类
+ *
+ * @author zhuzhenjie
  */
 public class HashCodeBuilder {
 

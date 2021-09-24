@@ -5,7 +5,7 @@ package winterfell.kmp;
  **/
 public class Kmp {
 
-    void getNext(String pattern, int next[]) {
+    static void getNext(String pattern, int[] next) {
         int j = 0;
         int k = -1;
         int len = pattern.length();
@@ -27,7 +27,7 @@ public class Kmp {
 
     }
 
-    int kmp(String s, String pattern) {
+    static int kmp(String s, String pattern) {
         int i = 0;
         int j = 0;
         int slen = s.length();
@@ -65,9 +65,8 @@ public class Kmp {
      * @param args the input arguments
      */
     public static void main(String[] args) {
-        Kmp kmp = new Kmp();
         String str = "abababdafdasabcfdfeaba";
         String pattern = "abc";
-        System.out.println(kmp.kmp(str, pattern));
+        System.out.println(kmp(str, pattern));
     }
 }

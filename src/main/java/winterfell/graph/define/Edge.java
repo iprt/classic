@@ -1,8 +1,9 @@
 package winterfell.graph.define;
 
 /**
- * @author zhuzhenjie
  * 图中的边
+ *
+ * @author zhuzhenjie
  */
 public class Edge<Element, Relation extends Comparable> implements Comparable<Edge<Edge, Relation>> {
 

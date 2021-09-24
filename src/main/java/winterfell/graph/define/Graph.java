@@ -3,8 +3,9 @@ package winterfell.graph.define;
 import java.util.Set;
 
 /**
- * @author zhuzhenjie
  * 权重图抽象
+ *
+ * @author zhuzhenjie
  */
 public interface Graph<Element, Relation extends Comparable> {
 

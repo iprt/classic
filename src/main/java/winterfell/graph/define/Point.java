@@ -1,8 +1,9 @@
 package winterfell.graph.define;
 
 /**
- * @author zhuzhenjie
  * 图中的点
+ *
+ * @author zhuzhenjie
  */
 public class Point<Element> {
     /**

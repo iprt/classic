@@ -1,15 +1,12 @@
 package winterfell.graph.define;
 
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringJoiner;
+import java.util.*;
 
 /**
- * @author zhuzhenjie
  * 图的实现 邻接表
+ *
+ * @author zhuzhenjie
  */
 public class WeightedGraph<Element, Relation extends Comparable> implements Graph<Element, Relation> {
 
