@@ -1,4 +1,4 @@
-package winterfell.graph.define;
+package org.iproute.graph.define;
 
 /**
  * 图中的边

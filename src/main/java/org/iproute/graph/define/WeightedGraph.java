@@ -1,4 +1,4 @@
-package winterfell.graph.define;
+package org.iproute.graph.define;
 
 import java.lang.reflect.Method;
 import java.util.*;

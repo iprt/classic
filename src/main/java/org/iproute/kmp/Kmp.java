@@ -1,4 +1,4 @@
-package winterfell.kmp;
+package org.iproute.kmp;
 
 /**
  * @author winterfell

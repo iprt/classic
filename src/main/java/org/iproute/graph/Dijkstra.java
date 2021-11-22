@@ -1,9 +1,9 @@
-package winterfell.graph;
+package org.iproute.graph;
 
 
-import winterfell.graph.define.Edge;
-import winterfell.graph.define.Graph;
-import winterfell.graph.define.Point;
+import org.iproute.graph.define.Edge;
+import org.iproute.graph.define.Graph;
+import org.iproute.graph.define.Point;
 
 import java.util.*;
 import java.util.stream.Collectors;
