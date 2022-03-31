@@ -1,1 +1,8 @@
 rootProject.name = 'classic'
+
+include('alchemy')
+include('algorithm')
+include('data-structure')
+include('design-pattern')
+include('dp0')
+include('leetcode')
