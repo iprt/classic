@@ -3,7 +3,7 @@ plugins {
     id 'idea'
 }
 
-group 'com.winterfell'
+group 'org.iproute'
 version '1.0-SNAPSHOT'
 
 configurations {

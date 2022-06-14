@@ -3,7 +3,7 @@ package org.iproute.bst;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class BST<K extends Comparable, V> {
+public class BST<K extends Comparable<K>, V> {
 
     private int count;
 
