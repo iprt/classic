@@ -68,18 +68,20 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
     @Override
     public void show() {
 
-        System.out.println("point count: " + this.getPointCount());
-        System.out.println("edge count: " + this.getEdgeCount());
-
-        System.out.println("--- show ---");
+        System.out.println("点的个数为 : " + this.getPointCount());
+        System.out.println("边的个数为 : " + this.getEdgeCount());
+        System.out.println("--- show graph start ---");
 
         graph.forEach((p, es) -> {
             StringJoiner sj = new StringJoiner("    ");
             es.forEach(e -> {
-                sj.add("{" + e.other(p).toString() + ",Weight:" + e.getW().toString() + "}");
+                sj.add(String.format("%s->%s: %s", e.getFrom().getSign(), e.getTo().getSign(), e.getW()));
             });
-            System.out.println(p + ":" + sj.toString());
+            System.out.println(p.getSign() + " : " + sj.toString());
         });
+
+        System.out.println("--- show graph end ---");
+        System.out.println();
     }
 
     @Override
@@ -134,7 +136,7 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
 
         // 无向图 反过来再添加一次边
         if (!direct) {
-            Set<Edge<W, T>> toEdges = this.graph.get(from);
+            Set<Edge<W, T>> toEdges = this.graph.get(to);
             if (Objects.isNull(toEdges)) {
                 toEdges = new HashSet<>();
                 this.graph.put(to, toEdges);

@@ -7,6 +7,8 @@ import org.iproute.classic.graph.define.Point;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Stack;
+import java.util.TreeSet;
 
 /**
  * Dijkstra 单源最短路径
@@ -60,41 +62,52 @@ public class Dijkstra {
         this.hasCal = false;
     }
 
+    /**
+     * 执行单源最短路径的计算
+     */
     public void calculate() {
         // 松弛计算
         long start = System.currentTimeMillis();
 
         while (!minHeap.isEmpty()) {
-            // 1.取出到源头的最小的点
-            PointDistance minPoint = extractMin();
-            // 2.标记为已经访问了的点
-            Point<String> tmpMinPoint = minPoint.getPoint();
-            this.marked.put(tmpMinPoint, true);
+            PointDistance minPD = extractMin();
 
-            // 3.遍历这个点的所有临边
-            Iterable<Edge<Double, String>> adj = this.g.adj(tmpMinPoint);
+            Point<String> curPoint = minPD.getPoint();
+            // 标记当前点是已经访问了的
+            marked.put(curPoint, true);
 
-            adj.forEach(edge -> {
-                // 拿出边另外一边的点
-                Point<String> other = edge.other(tmpMinPoint);
+            // 获取这个点的所有邻边
+            Iterable<Edge<Double, String>> adj = this.g.adj(curPoint);
 
-                boolean marked = this.marked.get(other);
+            // 对所有的邻边进行遍历
+            for (Edge<Double, String> aroundEdge : adj) {
+                Point<String> otherPoint = aroundEdge.other(curPoint);
 
-                if (!marked) {
-                    Edge<Double, String> whichEdge = from.get(other);
-                    double tmpW = distTo.get(tmpMinPoint) + whichEdge.getW();
-                    if (from.get(other) == null
-                            || tmpW < distTo.get(other)
-                    ) {
-                        distTo.put(other, tmpW);
-                        from.put(other, edge);
+                boolean visit = marked.get(otherPoint);
+                if (!visit) {
 
-                        minHeap.offer(new PointDistance(other, tmpW));
+                    Edge<Double, String> fromE = from.get(otherPoint);
+                    if (fromE == null) {
+                        // 到源最小的距离就是当前的边
+                        double min = distTo.get(curPoint) + aroundEdge.getW();
+                        from.put(otherPoint, aroundEdge);
+                        distTo.put(otherPoint, min);
+                        putMin(otherPoint, min);
+
+                    } else {
+                        double oldMin = distTo.get(otherPoint);
+                        double newMin = distTo.get(curPoint) + aroundEdge.getW();
+
+                        if (newMin < oldMin) {
+                            from.put(otherPoint, aroundEdge);
+                            distTo.put(otherPoint, newMin);
+                            // 堆中有重复对象的问题
+                            putMin(otherPoint, newMin);
+                        }
+
                     }
                 }
-
-            });
-
+            }
         }
 
         long end = System.currentTimeMillis();
@@ -102,8 +115,36 @@ public class Dijkstra {
         this.hasCal = true;
     }
 
+    private void putMin(Point<String> point, double distance) {
+        this.minHeap.offer(new PointDistance(point, distance));
+    }
+
     private PointDistance extractMin() {
         return minHeap.poll();
+    }
+
+    public void showPath(Point<String> p) {
+
+        if (!hasCal) {
+            System.out.println("没有计算");
+            return;
+        }
+
+        System.out.println("路径长度为: " + distTo.get(p));
+
+        Stack<Edge<Double, String>> stack = new Stack<>();
+
+        Edge<Double, String> tmpE;
+        Point<String> tmpP = p;
+        while ((tmpE = from.get(tmpP)) != null) {
+            stack.push(tmpE);
+            tmpP = tmpE.other(tmpP);
+        }
+
+        stack.forEach(e -> {
+            System.out.println(e.getFrom() + " --> " + e.getTo());
+        });
+
     }
 
     /**
@@ -119,7 +160,7 @@ public class Dijkstra {
         this.from = new HashMap<>(pSize);
         g.allPoints().forEach(p -> this.from.put(p, null));
 
-        //
+        // 所有的distTo初始化为0
         this.distTo = new HashMap<>(pSize);
         g.allPoints().forEach(p -> this.distTo.put(p, 0.0));
 
