@@ -98,4 +98,14 @@ public class Component<T, W extends Comparable<W>> {
         });
     }
 
+    public boolean hasPath(Point<T> from, Point<T> to) {
+        Integer f = this.uf.get(from);
+        Integer t = this.uf.get(to);
+        if (f == null || t == null) {
+            System.out.println("点位错误");
+            return false;
+        }
+        return f.intValue() == t.intValue();
+    }
+
 }
