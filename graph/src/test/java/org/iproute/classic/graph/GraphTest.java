@@ -1,7 +1,7 @@
 package org.iproute.classic.graph;
 
+import org.iproute.classic.graph.algorithm.Component;
 import org.iproute.classic.graph.algorithm.Dijkstra;
-import org.iproute.classic.graph.define.Edge;
 import org.iproute.classic.graph.define.Graph;
 import org.iproute.classic.graph.define.Point;
 import org.iproute.classic.graph.define.impl.GraphImpl;
@@ -23,15 +23,11 @@ public class GraphTest {
         Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), true);
 
         String namespace = graph.namespace();
+        Point<String> a = new Point<>(namespace, "A", null);
+        Point<String> b = new Point<>(namespace, "B", null);
+        graph.connect(a, b, 1.0);
 
-        Edge<Double, String> ab = new Edge<>(
-                namespace,
-                new Point<>(namespace, "a", null),
-                new Point<>(namespace, "b", null),
-                1.0
-        );
-
-        graph.addEdge(ab);
+        System.out.println("是否为有向图：" + graph.direct());
 
         graph.show();
 
@@ -67,4 +63,31 @@ public class GraphTest {
         dijkstra.showPath(b);
 
     }
+
+    @Test
+    public void components() {
+
+        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), false);
+
+        String namespace = graph.namespace();
+        Point<String> a = new Point<>(namespace, "A", null);
+        Point<String> b = new Point<>(namespace, "B", null);
+
+        Point<String> c = new Point<>(namespace, "C", null);
+        Point<String> d = new Point<>(namespace, "D", null);
+
+        graph.connect(a, b, 1.0);
+        graph.connect(c, d, 2.0);
+
+        graph.show();
+
+        Component<String, Double> component = new Component<>(graph);
+
+        int componentCounts = component.calculate();
+
+        System.out.println(componentCounts);
+
+
+    }
+
 }

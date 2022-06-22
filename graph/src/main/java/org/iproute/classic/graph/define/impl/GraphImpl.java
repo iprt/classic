@@ -5,6 +5,7 @@ import org.iproute.classic.graph.define.Graph;
 import org.iproute.classic.graph.define.Namespace;
 import org.iproute.classic.graph.define.Point;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -39,6 +40,11 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
      */
     private Set<Edge<W, T>> allEdges;
 
+    /**
+     * 存储一场图中所有的点
+     */
+    private Set<Point<T>> allPoints;
+
 
     /**
      * namespace: 图隔离
@@ -52,6 +58,7 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
 
         this.graph = new HashMap<>();
         this.allEdges = new HashSet<>();
+        this.allPoints = new HashSet<>();
 
     }
 
@@ -86,7 +93,7 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
 
     @Override
     public int getPointCount() {
-        return this.graph.size();
+        return this.allPoints.size();
     }
 
     @Override
@@ -96,7 +103,7 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
 
     @Override
     public Set<Point<T>> allPoints() {
-        return this.graph.keySet();
+        return this.allPoints;
     }
 
     @Override
@@ -121,9 +128,7 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
             return;
         }
 
-        //
         Set<Edge<W, T>> fromEdges = this.graph.get(from);
-
         // 邻接表的初始化
         if (Objects.isNull(fromEdges)) {
             fromEdges = new HashSet<>();
@@ -146,6 +151,10 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
             this.allEdges.add(edge);
         }
 
+
+        // 添加点
+        this.allPoints.add(from);
+        this.allPoints.add(to);
     }
 
     @Override
@@ -168,6 +177,9 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
 
     @Override
     public Iterable<Edge<W, T>> adj(Point<T> point) {
-        return this.graph.get(point);
+        Set<Edge<W, T>> edges = this.graph.get(point);
+        return Objects.isNull(edges)
+                ? Collections.emptyList()
+                : edges;
     }
 }
