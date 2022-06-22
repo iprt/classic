@@ -87,9 +87,7 @@ public class GraphTest {
 
         int componentCounts = component.calculate();
 
-        System.out.println(componentCounts);
-
-
+        System.out.println("联通分量的个数为：" + componentCounts);
     }
 
 }
