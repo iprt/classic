@@ -67,7 +67,9 @@ public class GraphTest {
     @Test
     public void components() {
 
-        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), false);
+        boolean direct = false;
+
+        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), direct);
 
         String namespace = graph.namespace();
         Point<String> a = new Point<>(namespace, "A", null);
