@@ -4,11 +4,12 @@ import org.iproute.classic.graph.define.Edge;
 import org.iproute.classic.graph.define.Graph;
 import org.iproute.classic.graph.define.Point;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Stack;
-import java.util.TreeSet;
 
 /**
  * Dijkstra 单源最短路径
@@ -70,9 +71,9 @@ public class Dijkstra {
         long start = System.currentTimeMillis();
 
         while (!minHeap.isEmpty()) {
-            PointDistance minPD = extractMin();
+            PointDistance minPd = extractMin();
 
-            Point<String> curPoint = minPD.getPoint();
+            Point<String> curPoint = minPd.getPoint();
             // 标记当前点是已经访问了的
             marked.put(curPoint, true);
 
@@ -101,7 +102,7 @@ public class Dijkstra {
                         if (newMin < oldMin) {
                             from.put(otherPoint, aroundEdge);
                             distTo.put(otherPoint, newMin);
-                            // 堆中有重复对象的问题
+                            // TODO 堆中有重复的 点和距离 的问题 极致的性能优化
                             putMin(otherPoint, newMin);
                         }
 
@@ -141,10 +142,24 @@ public class Dijkstra {
             tmpP = tmpE.other(tmpP);
         }
 
-        stack.forEach(e -> {
-            System.out.println(e.getFrom() + " --> " + e.getTo());
-        });
+        List<Edge<Double, String>> edges = new ArrayList<>(stack.size());
 
+        while (!stack.isEmpty()) {
+            edges.add(stack.pop());
+        }
+
+        // edges.forEach(e -> {
+        //     Point<String> fp = e.getFrom();
+        //     Point<String> tp = e.getTo();
+        //     System.out.printf("%s -(%s)-> %s    ", fp.getSign(), e.getW(), tp.getSign());
+        // });
+        // System.out.println();
+
+        edges.forEach(e -> {
+            Point<String> fp = e.getFrom();
+            System.out.printf("%s -(%s)-> ", fp.getSign(), e.getW());
+        });
+        System.out.println(p.getSign());
     }
 
     /**
