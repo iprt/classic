@@ -85,8 +85,14 @@ public class Dijkstra {
                 Point<String> otherPoint = aroundEdge.other(curPoint);
 
                 boolean visit = marked.get(otherPoint);
-                if (!visit) {
+                /*
+                if (visit) {
+                    // todo 理解，这个地方已经解决了 minheap中重复对象的问题
+                    continue;
+                }
+                */
 
+                if (!visit) {
                     Edge<Double, String> fromE = from.get(otherPoint);
                     if (fromE == null) {
                         // 到源最小的距离就是当前的边
@@ -102,12 +108,11 @@ public class Dijkstra {
                         if (newMin < oldMin) {
                             from.put(otherPoint, aroundEdge);
                             distTo.put(otherPoint, newMin);
-                            // TODO 堆中有重复的 点和距离 的问题 极致的性能优化
                             putMin(otherPoint, newMin);
                         }
-
                     }
                 }
+
             }
         }
 
@@ -163,7 +168,7 @@ public class Dijkstra {
     }
 
     /**
-     * 初始化 辅助数据结构
+     * 初始化辅助的数据结构
      */
     private void initAuxiliary() {
         int pSize = g.getPointCount();
