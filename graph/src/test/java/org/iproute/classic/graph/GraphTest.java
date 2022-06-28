@@ -2,6 +2,7 @@ package org.iproute.classic.graph;
 
 import org.iproute.classic.graph.algorithm.Component;
 import org.iproute.classic.graph.algorithm.Dijkstra;
+import org.iproute.classic.graph.algorithm.Ring;
 import org.iproute.classic.graph.algorithm.Traverse;
 import org.iproute.classic.graph.define.Graph;
 import org.iproute.classic.graph.define.Point;
@@ -132,6 +133,41 @@ public class GraphTest {
 
         System.out.println("A 到 B 是否有路径 : " + component.hasPath(a, b));
         System.out.println("A 到 C 是否有路径 : " + component.hasPath(a, c));
+    }
+
+    @Test
+    public void ring() {
+        boolean direct = true;
+        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), direct);
+
+        String namespace = graph.namespace();
+
+        Point<String> a = new Point<>(namespace, "A", null);
+        Point<String> b = new Point<>(namespace, "B", null);
+
+        Point<String> c = new Point<>(namespace, "C", null);
+        Point<String> d = new Point<>(namespace, "D", null);
+
+        // a -> b -> c -> d
+        graph.connect(a, b, 1.0);
+        graph.connect(b, c, 1.0);
+        graph.connect(c, d, 1.0);
+
+        Ring ring = new Ring(graph);
+
+        graph.show();
+
+        ring.calculate(a);
+
+        System.out.println("是否有环：" + ring.hasRing());
+
+
+        graph.connect(d, a, 1.0);
+        graph.show();
+        ring.calculate(a);
+
+        System.out.println("是否有环：" + ring.hasRing());
+
     }
 
 }
