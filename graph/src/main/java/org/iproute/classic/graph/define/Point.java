@@ -9,7 +9,7 @@ package org.iproute.classic.graph.define;
 public class Point<T> implements Namespace {
 
     private int hash;
-    private String namespace;
+    private final String namespace;
 
     /**
      * 描述点内的内容
@@ -21,7 +21,7 @@ public class Point<T> implements Namespace {
      * <p>
      * 对于这个标识，要生成这个点的hashCode,便于后续邻接表的Map的使用
      */
-    private String sign;
+    private final String sign;
 
     @Override
     public String namespace() {

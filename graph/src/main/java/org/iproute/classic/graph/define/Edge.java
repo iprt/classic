@@ -14,16 +14,17 @@ public class Edge<W extends Comparable<W>, T> implements Namespace {
 
     private int hash;
 
-    private String namespace;
+    private final String namespace;
     /**
      * 一条边存在两个点，from --> to
      */
-    private Point<T> from, to;
+    private final Point<T> from;
+    private final Point<T> to;
 
     /**
      * 这条边的权重
      */
-    private W w;
+    private final W w;
 
 
     // 提供边的初始化方法

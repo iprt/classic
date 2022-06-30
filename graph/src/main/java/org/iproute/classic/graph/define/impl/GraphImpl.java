@@ -25,7 +25,7 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
      * 图的隔离
      */
     private final String namespace;
-    private boolean direct;
+    private final boolean direct;
 
     /**
      * 邻接矩阵
@@ -33,17 +33,17 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
      * key 为 点
      * value 为 边的集合
      */
-    private Map<Point<T>, Set<Edge<W, T>>> graph;
+    private final Map<Point<T>, Set<Edge<W, T>>> graph;
 
     /**
      * 存储一张图中所有的边
      */
-    private Set<Edge<W, T>> allEdges;
+    private final Set<Edge<W, T>> allEdges;
 
     /**
      * 存储一场图中所有的点
      */
-    private Set<Point<T>> allPoints;
+    private final Set<Point<T>> allPoints;
 
 
     /**
