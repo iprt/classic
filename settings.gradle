@@ -1,10 +1,10 @@
 rootProject.name = 'classic'
 
-include('alchemy')
-include('algorithm')
-include('data-structure')
-include('design-pattern')
-include('dp0')
-include('graph')
-include('tree')
+include('ads:alchemy')
+include('ads:algorithm')
+include('ads:data-structure')
+include('java-design-pattern:dp0')
+include('java-design-pattern:design-pattern')
+include('independent:graph')
+include('independent:tree')
 include('leetcode')
