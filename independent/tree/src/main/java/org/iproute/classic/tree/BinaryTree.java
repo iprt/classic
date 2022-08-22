@@ -41,11 +41,20 @@ public interface BinaryTree<K extends Comparable<K>, V> {
     V get(K k);
 
     /**
+     * 是否包含
+     *
+     * @param k the k
+     * @return the boolean
+     */
+    boolean contains(K k);
+
+    /**
      * 删除节点
      *
      * @param k the k
+     * @return 是否删除成功
      */
-    void delete(K k);
+    boolean delete(K k);
 
 
     /**

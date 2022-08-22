@@ -26,6 +26,11 @@ public interface BinarySearchTree<K extends Comparable<K>, V> extends BinaryTree
     K max();
 
     @Override
+    default boolean contains(K k) {
+        return this.get(k) != null;
+    }
+
+    @Override
     default void dfs(BiConsumer<K, V> action) {
         this.preOrder(action);
     }

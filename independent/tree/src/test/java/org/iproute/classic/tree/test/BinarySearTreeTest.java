@@ -1,7 +1,6 @@
 package org.iproute.classic.tree.test;
 
 import org.iproute.classic.tree.BinarySearchTree;
-import org.iproute.classic.tree.BinaryTree;
 import org.iproute.classic.tree.general.BinarySearchTreeImpl;
 import org.junit.Assert;
 import org.junit.Test;
@@ -109,6 +108,27 @@ public class BinarySearTreeTest {
 
         System.out.println("----------");
         bst.postOrder(action);
+    }
+
+    @Test
+    public void testDelete() {
+
+        BinarySearchTree<Integer, String> bst = new BinarySearchTreeImpl<>();
+
+        bst.add(5, "5");
+        bst.add(1, "1");
+        bst.add(3, "3");
+        bst.add(2, "2");
+        bst.add(4, "4");
+
+        BiConsumer<Integer, String> action = (k, v) -> System.out.printf("k = %d, v = %s%n", k, v);
+
+        bst.bfs(action);
+
+        bst.delete(2);
+
+        bst.bfs(action);
+
     }
 
 }

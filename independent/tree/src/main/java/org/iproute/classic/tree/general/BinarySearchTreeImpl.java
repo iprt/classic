@@ -82,10 +82,95 @@ public class BinarySearchTreeImpl<K extends Comparable<K>, V> implements BinaryS
         return right == null ? null : get(right, k);
     }
 
-    @Override
-    public void delete(K k) {
 
+    /**
+     * 二叉树删除节点的思路
+     * <p>
+     * 思路： 找到右子树最小的点 或者 左子树最大的点 替换找到的点
+     *
+     * @param k the k
+     */
+    @Override
+    public boolean delete(K k) {
+
+        /*
+                5
+              /   \
+            1       3
+                   /  \
+                  [2]  4
+
+        ----- ----- ----- -----
+
+               [2]
+              /   \
+            1       3
+                      \
+                       4
+         */
+
+
+        BSTNode<K, V> dNode = get(root, k);
+        if (dNode == null) {
+            return false;
+        }
+
+        root = delete(root, k);
+        this.size--;
+
+        return true;
     }
+
+
+    /**
+     * Delete bst node.
+     *
+     * @param node the node 起始节点
+     * @param k    the k 值
+     * @return 返回删除节点后新的二分搜索树的根
+     */
+    BSTNode<K, V> delete(BSTNode<K, V> node, K k) {
+        if (node == null) {
+            return null;
+        }
+
+        int eq = k.compareTo(node.k);
+        if (eq == 0) {
+            if (node.left == null && node.right == null) {
+                return null;
+            }
+            if (node.left == null) {
+                return node.right;
+            }
+            if (node.right == null) {
+                return node.left;
+            }
+
+            BSTNode<K, V> leftSub = node.left;
+            BSTNode<K, V> rightSub = node.right;
+
+            // 找到右子树最小的节点
+            BSTNode<K, V> rightSubMin = min(node.right);
+
+            node = rightSubMin;
+
+            node.left = leftSub;
+            node.right = rightSub;
+
+            // 删除右子树的最小节点
+            this.delete(node.right, rightSubMin.k);
+
+            return rightSubMin;
+
+        } else if (eq < 0) {
+            node.left = delete(node.left, k);
+            return node;
+        } else {
+            node.right = delete(node.right, k);
+            return node;
+        }
+    }
+
 
     // 广度遍历
     @Override
@@ -186,7 +271,7 @@ public class BinarySearchTreeImpl<K extends Comparable<K>, V> implements BinaryS
 
     @Override
     public void postOrder(BiConsumer<K, V> action) {
-        this.postOrder(root,action);
+        this.postOrder(root, action);
     }
 
     private void postOrder(BSTNode<K, V> node, BiConsumer<K, V> action) {
