@@ -12,7 +12,7 @@ import java.util.function.BiConsumer;
  * @author winterfell
  * @since 2022/6/30
  */
-public class BinarySearchTreeImpl<K extends Comparable<K>, V> implements BinarySearchTree<K, V> {
+public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements BinarySearchTree<K, V> {
 
     private BSTNode<K, V> root;
 
