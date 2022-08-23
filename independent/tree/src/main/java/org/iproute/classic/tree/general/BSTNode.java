@@ -1,8 +1,5 @@
 package org.iproute.classic.tree.general;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * BSTNode
  *

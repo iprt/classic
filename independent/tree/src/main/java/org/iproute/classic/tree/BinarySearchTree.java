@@ -11,6 +11,10 @@ import java.util.function.BiConsumer;
  * @since 2022/8/20
  */
 public interface BinarySearchTree<K extends Comparable<K>, V> extends BinaryTree<K, V> {
+    @Override
+    default boolean isEmpty() {
+        return this.size() == 0;
+    }
 
     /**
      * 获取最小节点

@@ -19,11 +19,6 @@ public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements Binar
     private int size;
 
     @Override
-    public boolean isEmpty() {
-        return this.size == 0;
-    }
-
-    @Override
     public int size() {
         return this.size;
     }
