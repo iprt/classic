@@ -10,18 +10,16 @@ public class AvlNode<K extends Comparable<K>, V> {
     K k;
     V v;
 
+
+    /**
+     * 节点的高度， 怎么理解这个高度
+     * <p>
+     * 这个高度是节点到最下一层的叶子节点的高度
+     */
     int height;
 
     AvlNode<K, V> left;
     AvlNode<K, V> right;
-
-    public AvlNode(K k, V v, int height) {
-        this.k = k;
-        this.v = v;
-        this.height = height;
-        this.left = null;
-        this.right = null;
-    }
 
     public AvlNode(K k, V v) {
         this.k = k;
@@ -31,5 +29,4 @@ public class AvlNode<K extends Comparable<K>, V> {
         this.left = null;
         this.right = null;
     }
-
 }

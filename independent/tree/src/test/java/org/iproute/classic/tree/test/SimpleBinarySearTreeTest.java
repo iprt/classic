@@ -13,7 +13,7 @@ import java.util.function.BiConsumer;
  * @author zhuzhenjie
  * @since 2022/8/20
  */
-public class BinarySearTreeTest {
+public class SimpleBinarySearTreeTest {
 
     @Test
     public void testCreate() {

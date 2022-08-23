@@ -240,7 +240,9 @@ public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements Binar
         if (node == null) {
             return;
         }
-        action.accept(node.k, node.v);
+        if (action != null) {
+            action.accept(node.k, node.v);
+        }
 
         preOrder(node.left, action);
         preOrder(node.right, action);
@@ -257,9 +259,9 @@ public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements Binar
             return;
         }
         inOrder(node.left, action);
-
-        action.accept(node.k, node.v);
-
+        if (action != null) {
+            action.accept(node.k, node.v);
+        }
         inOrder(node.right, action);
     }
 
@@ -276,7 +278,9 @@ public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements Binar
         postOrder(node.left, action);
         postOrder(node.right, action);
 
-        action.accept(node.k, node.v);
+        if (action != null){
+            action.accept(node.k, node.v);
+        }
     }
 
 }
