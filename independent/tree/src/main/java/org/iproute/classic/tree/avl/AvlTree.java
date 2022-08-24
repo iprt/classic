@@ -2,6 +2,8 @@ package org.iproute.classic.tree.avl;
 
 import org.iproute.classic.tree.BinarySearchTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.function.BiConsumer;
 
 /**
@@ -94,21 +96,81 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
     @Override
     public void bfs(BiConsumer<K, V> action) {
+        Queue<AvlNode<K, V>> nodes = new LinkedList<>();
+        nodes.add(root);
+        while (!nodes.isEmpty()) {
+            AvlNode<K, V> poll = nodes.poll();
 
+            if (action != null) {
+                action.accept(poll.k, poll.v);
+            }
+
+            AvlNode<K, V> left = poll.left;
+            if (left != null) {
+                nodes.add(left);
+            }
+
+            AvlNode<K, V> right = poll.right;
+            if (right != null) {
+                nodes.add(right);
+            }
+        }
     }
 
     @Override
     public void preOrder(BiConsumer<K, V> action) {
+        preOrder(root, action);
+    }
+
+    private void preOrder(AvlNode<K, V> node, BiConsumer<K, V> action) {
+        if (node == null) {
+            return;
+        }
+
+        if (action != null) {
+            action.accept(node.k, node.v);
+        }
+
+        preOrder(node.left, action);
+        preOrder(node.right, action);
 
     }
 
+
     @Override
     public void inOrder(BiConsumer<K, V> action) {
+        this.inOrder(root, action);
+    }
 
+    private void inOrder(AvlNode<K, V> node, BiConsumer<K, V> action) {
+        if (node == null) {
+            return;
+        }
+
+        inOrder(node.left, action);
+
+        if (action != null) {
+            action.accept(node.k, node.v);
+        }
+
+        inOrder(node.right, action);
     }
 
     @Override
     public void postOrder(BiConsumer<K, V> action) {
-
+        this.postOrder(root, action);
     }
+
+    private void postOrder(AvlNode<K, V> node, BiConsumer<K, V> action) {
+        if (node == null) {
+            return;
+        }
+        postOrder(node.left, action);
+        postOrder(node.right, action);
+
+        if (action != null) {
+            action.accept(node.k, node.v);
+        }
+    }
+
 }
