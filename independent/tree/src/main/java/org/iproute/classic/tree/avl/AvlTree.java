@@ -20,12 +20,34 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
     @Override
     public K min() {
-        return null;
+        AvlNode<K, V> min = min(root);
+        return min == null ? null : min.k;
+    }
+
+    private AvlNode<K, V> min(AvlNode<K, V> node) {
+        if (node == null) {
+            return null;
+        }
+        if (node.left == null) {
+            return node;
+        }
+        return min(node.left);
     }
 
     @Override
     public K max() {
-        return null;
+        AvlNode<K, V> max = max(root);
+        return max == null ? null : max.k;
+    }
+
+    private AvlNode<K, V> max(AvlNode<K, V> node) {
+        if (node == null) {
+            return null;
+        }
+        if (node.right == null) {
+            return node;
+        }
+        return max(node.right);
     }
 
     @Override
