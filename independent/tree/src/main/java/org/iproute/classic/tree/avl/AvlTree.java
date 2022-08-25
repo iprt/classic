@@ -122,7 +122,10 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
         // ●  ⚪  ▲  △
 
-        if (balanceFactor > 1 && getBalanceFactor(node.left) >= 0) {
+        // 旋转思路: 砍掉子节点 -> 接到当前节点上 -> 降级当前节点
+
+        // LL
+        if (balanceFactor == 2 && getBalanceFactor(node.left) >= 0) {
             /*
 
                 z
@@ -135,19 +138,108 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
             return rightRotate(node);
         }
 
-        if (balanceFactor < -1 && getBalanceFactor(node.right) <= 0) {
+        // RR
+        if (balanceFactor == -2 && getBalanceFactor(node.right) <= 0) {
             /*
 
-            x
+            z
              \
               y
                \
-                z
+                x
 
              */
             return leftRotate(node);
         }
 
+        // LR
+        // z -> balanceFactor == 2
+        // y -> getBalanceFactor(node.left) < 0
+        if (balanceFactor == 2 && getBalanceFactor(node.left) < 0) {
+            /*
+                z
+               /
+              y
+               \
+                x
+
+
+            ↓ ↓ ↓ ↓ ↓ ↓
+                z
+               / \
+              y  t4
+             / \
+            t1  x
+               / \
+              t2 t3
+
+
+            对 y 节点做一次 左旋转 砍子 接己 降己
+                  z
+                 / \
+                x  t4
+               / \
+              y  t3
+             / \
+            t1 t2
+
+
+            对 z 节点做一次 右旋转 砍子 接己 降己
+                  x
+                /   \
+               y     z
+             /  \   /  \
+            t1  t2 t3  t4
+
+             */
+
+            node.left = leftRotate(node.left);
+            return rightRotate(node.left);
+        }
+
+        // RL
+        if (balanceFactor == -2 && getBalanceFactor(node.right) > 0) {
+            /*
+
+              z
+               \
+                y
+               /
+              x
+
+            ↓ ↓ ↓ ↓ ↓ ↓
+
+               z
+              / \
+             t1  y
+                / \
+               x  t4
+              / \
+             t2 t3
+
+            对 y 节点做一次右旋转
+
+               z
+              / \
+             t1  x
+                / \
+               t2  y
+                  / \
+                 t3 t4
+
+            对 z 节点做一次左旋转
+
+                  x
+                /  \
+               z     y
+              / \   / \
+             t1 t2 t3  t4
+
+             */
+
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
 
         return node;
     }
