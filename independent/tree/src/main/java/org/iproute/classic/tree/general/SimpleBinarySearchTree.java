@@ -230,6 +230,12 @@ public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements Binar
 
 
     @Override
+    public boolean isBalanced() {
+        return false;
+    }
+
+
+    @Override
     public void preOrder(BiConsumer<K, V> action) {
         // 默认的dfs
         this.preOrder(root, action);

@@ -20,8 +20,14 @@ public class AvlTreeTest {
             tree.add(i, String.valueOf(i));
         }
 
-
         tree.bfs(null);
+
+        boolean isBST = tree.isBST();
+        System.out.println("is BST = " + isBST);
+
+        boolean balanced = tree.isBalanced();
+        System.out.println("is balanced = " + balanced);
+
     }
 
 }

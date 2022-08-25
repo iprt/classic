@@ -32,11 +32,11 @@ public interface BinarySearchTree<K extends Comparable<K>, V> extends BinaryTree
     K max();
 
     /**
-     * 是否是真正的二分搜索树
+     * 是否是二分搜索树
      *
      * @return the boolean
      */
-    default boolean isRealBST() {
+    default boolean isBST() {
         if (isEmpty()) {
             return true;
         }
@@ -52,6 +52,14 @@ public interface BinarySearchTree<K extends Comparable<K>, V> extends BinaryTree
         }
         return true;
     }
+
+
+    /**
+     * 是否是平衡的
+     *
+     * @return the boolean
+     */
+    boolean isBalanced();
 
 
     @Override
