@@ -135,6 +135,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
             x
 
              */
+            System.out.println("LL ROTATE");
             return rightRotate(node);
         }
 
@@ -149,6 +150,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
                 x
 
              */
+            System.out.println("RR ROTATE");
             return leftRotate(node);
         }
 
@@ -193,6 +195,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
              */
 
+            System.out.println("LR ROTATE");
             node.left = leftRotate(node.left);
             return rightRotate(node.left);
         }
@@ -237,6 +240,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
              */
 
+            System.out.println("RL ROTATE");
             node.right = rightRotate(node.right);
             return leftRotate(node);
         }
@@ -372,7 +376,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
         return isBalanced(this.root);
     }
 
-    public boolean isBalanced(AvlNode<K, V> node) {
+    private boolean isBalanced(AvlNode<K, V> node) {
         if (node == null) {
             return true;
         }
