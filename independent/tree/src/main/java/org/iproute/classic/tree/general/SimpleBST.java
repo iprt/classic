@@ -12,11 +12,13 @@ import java.util.function.BiConsumer;
  * @author winterfell
  * @since 2022/6/30
  */
-public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements BinarySearchTree<K, V> {
+public class SimpleBST<K extends Comparable<K>, V> implements BinarySearchTree<K, V> {
 
     private BSTNode<K, V> root;
 
     private int size;
+
+    private boolean debug;
 
     @Override
     public int size() {
@@ -111,8 +113,6 @@ public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements Binar
         }
 
         root = delete(root, k);
-        this.size--;
-
         return true;
     }
 
@@ -128,41 +128,39 @@ public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements Binar
         if (node == null) {
             return null;
         }
-
         int eq = k.compareTo(node.k);
-        if (eq == 0) {
-            if (node.left == null && node.right == null) {
-                return null;
-            }
-            if (node.left == null) {
-                return node.right;
-            }
-            if (node.right == null) {
-                return node.left;
-            }
-
-            BSTNode<K, V> leftSub = node.left;
-            BSTNode<K, V> rightSub = node.right;
-
-            // 找到右子树最小的节点
-            BSTNode<K, V> rightSubMin = min(node.right);
-
-            node = rightSubMin;
-
-            node.left = leftSub;
-            node.right = rightSub;
-
-            // 删除右子树的最小节点
-            this.delete(node.right, rightSubMin.k);
-
-            return rightSubMin;
-
-        } else if (eq < 0) {
+        if (eq < 0) {
             node.left = delete(node.left, k);
             return node;
-        } else {
+        } else if (eq > 0) {
             node.right = delete(node.right, k);
             return node;
+        } else {
+            if (node.left == null && node.right == null) {
+                this.size--;
+                return null;
+            } else if (node.left == null) {
+                BSTNode<K, V> right = node.right;
+                node.right = null;
+                this.size--;
+                return right;
+            } else if (node.right == null) {
+                BSTNode<K, V> left = node.left;
+                node.left = null;
+                this.size--;
+                return left;
+            } else {
+                // 寻找右子树最小的节点
+                BSTNode<K, V> rightMin = min(node.right);
+
+                rightMin.right = delete(node.right, rightMin.k);
+                rightMin.left = node.left;
+
+                // release memory ???
+                node.left = null;
+                node.right = null;
+                return rightMin;
+            }
         }
     }
 
@@ -284,9 +282,19 @@ public class SimpleBinarySearchTree<K extends Comparable<K>, V> implements Binar
         postOrder(node.left, action);
         postOrder(node.right, action);
 
-        if (action != null){
+        if (action != null) {
             action.accept(node.k, node.v);
         }
+    }
+
+    @Override
+    public void setDebug(boolean debug) {
+        this.debug = debug;
+    }
+
+    @Override
+    public boolean getDebug() {
+        return this.debug;
     }
 
 }

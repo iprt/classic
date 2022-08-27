@@ -124,4 +124,56 @@ public class AvlTreeTest {
         Assert.assertTrue(balanced);
     }
 
+
+    @Test
+    public void testAddAndDelete() {
+        int max = 1 << 25;
+        System.out.println("max value  = " + max);
+
+        AvlTree<Integer, Integer> avl = new AvlTree<>();
+
+        avl.setDebug(false);
+
+        for (int i = 1; i <= max; i++) {
+            avl.add(i, i);
+        }
+
+        System.out.println("length = " + avl.size());
+        System.out.println("isBalanced = " + avl.isBalanced());
+
+        Assert.assertEquals(max, avl.size());
+        Assert.assertTrue(avl.isBalanced());
+
+        for (int i = 1; i <= max; i++) {
+            avl.delete(i);
+        }
+        System.out.println("after delete ... ");
+        System.out.println("length = " + avl.size());
+
+        Assert.assertEquals(0, avl.size());
+
+    }
+
+
+    @Test
+    public void testBfs() {
+        int max = 1 << 5;
+        AvlTree<Integer, String> avl = new AvlTree<>();
+        for (int i = 1; i <= max; i++) {
+            avl.add(i, String.valueOf(i));
+        }
+        avl.bfs(PRINT);
+    }
+
+
+    @Test
+    public void testDFS(){
+        int max = 1 << 5;
+        AvlTree<Integer, String> avl = new AvlTree<>();
+        for (int i = 1; i <= max; i++) {
+            avl.add(i, String.valueOf(i));
+        }
+        avl.bfs(PRINT);
+    }
+
 }

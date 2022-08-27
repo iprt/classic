@@ -71,4 +71,15 @@ public interface BinarySearchTree<K extends Comparable<K>, V> extends BinaryTree
     default void dfs(BiConsumer<K, V> action) {
         this.preOrder(action);
     }
+
+    /**
+     * Debug print.
+     *
+     * @param msg the msg
+     */
+    default void debugPrintln(String msg) {
+        if (getDebug()) {
+            System.out.println(msg);
+        }
+    }
 }

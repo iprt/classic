@@ -1,7 +1,7 @@
 package org.iproute.classic.tree.test;
 
 import org.iproute.classic.tree.BinarySearchTree;
-import org.iproute.classic.tree.general.SimpleBinarySearchTree;
+import org.iproute.classic.tree.general.SimpleBST;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,18 +13,18 @@ import java.util.function.BiConsumer;
  * @author zhuzhenjie
  * @since 2022/8/20
  */
-public class SimpleBinarySearTreeTest {
+public class SimpleBSTTest {
 
     @Test
     public void testCreate() {
-        BinarySearchTree<Integer, String> bst = new SimpleBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new SimpleBST<>();
         System.out.println(bst);
     }
 
 
     @Test
     public void testAdd() {
-        BinarySearchTree<Integer, String> bst = new SimpleBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new SimpleBST<>();
 
         bst.add(2, "222");
         bst.add(1, "111");
@@ -53,7 +53,7 @@ public class SimpleBinarySearTreeTest {
 
     @Test
     public void testGet() {
-        BinarySearchTree<Integer, String> bst = new SimpleBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new SimpleBST<>();
 
         bst.add(2, "222");
         bst.add(1, "111");
@@ -72,7 +72,7 @@ public class SimpleBinarySearTreeTest {
 
     @Test
     public void testMinAndMax() {
-        BinarySearchTree<Integer, String> bst = new SimpleBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new SimpleBST<>();
 
         bst.add(2, "222");
         bst.add(1, "111");
@@ -91,7 +91,7 @@ public class SimpleBinarySearTreeTest {
 
     @Test
     public void testOrder() {
-        BinarySearchTree<Integer, String> bst = new SimpleBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new SimpleBST<>();
 
         bst.add(2, "222");
         bst.add(1, "111");
@@ -113,7 +113,7 @@ public class SimpleBinarySearTreeTest {
     @Test
     public void testDelete() {
 
-        BinarySearchTree<Integer, String> bst = new SimpleBinarySearchTree<>();
+        BinarySearchTree<Integer, String> bst = new SimpleBST<>();
 
         bst.add(5, "5");
         bst.add(1, "1");

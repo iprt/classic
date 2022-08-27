@@ -50,6 +50,8 @@ public interface BinaryTree<K extends Comparable<K>, V> {
 
     /**
      * 删除节点
+     * <p>
+     * 二分搜索树删除的本质是删除叶子节点，替换叶子节点
      *
      * @param k the k
      * @return 是否删除成功
@@ -81,5 +83,22 @@ public interface BinaryTree<K extends Comparable<K>, V> {
      * 后序遍历
      */
     void postOrder(BiConsumer<K, V> action);
+
+
+    // debug 打印日志
+
+    /**
+     * Sets debug.
+     *
+     * @param debug the debug
+     */
+    void setDebug(boolean debug);
+
+    /**
+     * Gets debug.
+     *
+     * @return the debug
+     */
+    boolean getDebug();
 
 }

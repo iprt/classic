@@ -19,6 +19,8 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
     private int size;
 
+    private boolean debug;
+
     @Override
     public K min() {
         AvlNode<K, V> min = min(root);
@@ -114,8 +116,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
         int balanceFactor = this.getBalanceFactor(node);
         if (Math.abs(balanceFactor) > 1) {
             // 新增节点后，当前节点失去平衡
-            System.out.println("unbalanced : balanceFactor = " + balanceFactor);
-
+            debugPrintln("lost balance ---> balanceFactor = " + balanceFactor);
         }
 
         // 平衡的时机，是在平衡被打破后，回溯的时候回发现节点的平衡因子大于1 或者 小于 -1
@@ -135,7 +136,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
             x
 
              */
-            System.out.println("LL ROTATE");
+            debugPrintln("LL ROTATE");
             return rightRotate(node);
         }
 
@@ -150,7 +151,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
                 x
 
              */
-            System.out.println("RR ROTATE");
+            debugPrintln("RR ROTATE");
             return leftRotate(node);
         }
 
@@ -195,7 +196,7 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
              */
 
-            System.out.println("LR ROTATE");
+            debugPrintln("LR ROTATE");
             node.left = leftRotate(node.left);
             return rightRotate(node.left);
         }
@@ -391,13 +392,120 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
     @Override
     public V get(K k) {
-        return null;
+        AvlNode<K, V> find = get(root, k);
+        return find == null ? null : find.v;
     }
+
+
+    private AvlNode<K, V> get(AvlNode<K, V> node, K k) {
+        if (node == null) {
+            return null;
+        }
+
+        int i = k.compareTo(node.k);
+        if (i == 0) {
+            return node;
+        } else if (i < 0) {
+            return get(node.left, k);
+        } else {
+            return get(node.right, k);
+        }
+    }
+
 
     @Override
     public boolean delete(K k) {
-        return false;
+        int beforeSize = this.size();
+        this.root = delete(this.root, k);
+        int afterSize = this.size();
+        return afterSize - beforeSize > 0;
     }
+
+
+    private AvlNode<K, V> delete(AvlNode<K, V> node, K k) {
+        if (node == null) {
+            return null;
+        }
+        AvlNode<K, V> retNode;
+        if (k.compareTo(node.k) < 0) {
+            node.left = delete(node.left, k);
+            retNode = node;
+        } else if (k.compareTo(node.k) > 0) {
+            node.right = delete(node.right, k);
+            retNode = node;
+        } else {
+            if (node.left == null) {
+                AvlNode<K, V> right = node.right;
+                node.right = null;
+                size--;
+                retNode = right;
+            } else if (node.right == null) {
+                AvlNode<K, V> left = node.left;
+                node.left = null;
+                retNode = left;
+            } else {
+                // 寻找右子树最小的点
+                AvlNode<K, V> rightMin = min(node.right);
+
+                /*
+                node.k = rightMin.k;
+                node.v = rightMin.v;
+
+                // 删除右子树最小的点
+                delete(node.right, k);
+                 */
+
+                // 充分利用递归
+                rightMin.right = delete(node.right, rightMin.k);
+                rightMin.left = node.left;
+
+                node.left = null;
+                node.right = null;
+
+                retNode = rightMin;
+            }
+        }
+
+        if (retNode == null) {
+            return null;
+        }
+        // 平衡的维护
+
+        // 更新高度
+        retNode.height = Math.max(getHeight(retNode.left), getHeight(retNode.right)) + 1;
+
+        // 判断平衡因子
+        int balanceFactor = getBalanceFactor(retNode);
+
+        // LL
+        if (balanceFactor == 2 &&
+                (getBalanceFactor(retNode.left) == 1 || getBalanceFactor(retNode.left) == 0)
+        ) {
+            retNode = rightRotate(retNode);
+        }
+
+        // RR
+        if (balanceFactor == -2 &&
+                (getBalanceFactor(retNode.right) == -1 || getBalanceFactor(retNode.right) == 0)
+        ) {
+            retNode = leftRotate(retNode);
+        }
+
+        // LR
+        if (balanceFactor == 2 && getBalanceFactor(retNode.left) == -1) {
+            retNode.left = leftRotate(retNode.left);
+            retNode = rightRotate(retNode);
+        }
+
+        // RL
+        if (balanceFactor == -2 && getBalanceFactor(retNode.right) == 1) {
+            retNode.right = rightRotate(retNode.right);
+            retNode = leftRotate(retNode);
+        }
+        // 平衡操作
+        return retNode;
+    }
+
 
     @Override
     public void bfs(BiConsumer<K, V> action) {
@@ -438,7 +546,6 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
 
         preOrder(node.left, action);
         preOrder(node.right, action);
-
     }
 
 
@@ -476,6 +583,17 @@ public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, 
         if (action != null) {
             action.accept(node.k, node.v);
         }
+    }
+
+
+    @Override
+    public void setDebug(boolean debug) {
+        this.debug = debug;
+    }
+
+    @Override
+    public boolean getDebug() {
+        return this.debug;
     }
 
 }
