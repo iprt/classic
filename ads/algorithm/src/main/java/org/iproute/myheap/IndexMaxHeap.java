@@ -1,7 +1,7 @@
 package org.iproute.myheap;
 
 // 最小索引堆
-public class IndexMaxHeap<Item extends Comparable> {
+public class IndexMaxHeap<Item extends Comparable<Item>> {
     // indexes 和 data是相辅相成的
 
     // 利用数组实现数据存储

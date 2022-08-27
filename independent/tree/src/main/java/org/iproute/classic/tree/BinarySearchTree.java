@@ -72,14 +72,4 @@ public interface BinarySearchTree<K extends Comparable<K>, V> extends BinaryTree
         this.preOrder(action);
     }
 
-    /**
-     * Debug print.
-     *
-     * @param msg the msg
-     */
-    default void debugPrintln(String msg) {
-        if (getDebug()) {
-            System.out.println(msg);
-        }
-    }
 }

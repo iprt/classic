@@ -8,7 +8,7 @@ import java.util.function.BiConsumer;
  * @author zhuzhenjie
  * @since 2022/8/20
  */
-public interface BinaryTree<K extends Comparable<K>, V> {
+public interface BinaryTree<K extends Comparable<K>, V> extends Debugger {
 
     /**
      * Is empty boolean.
@@ -83,22 +83,5 @@ public interface BinaryTree<K extends Comparable<K>, V> {
      * 后序遍历
      */
     void postOrder(BiConsumer<K, V> action);
-
-
-    // debug 打印日志
-
-    /**
-     * Sets debug.
-     *
-     * @param debug the debug
-     */
-    void setDebug(boolean debug);
-
-    /**
-     * Gets debug.
-     *
-     * @return the debug
-     */
-    boolean getDebug();
 
 }
