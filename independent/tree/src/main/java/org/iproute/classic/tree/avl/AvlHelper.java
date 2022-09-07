@@ -31,7 +31,7 @@ public class AvlHelper {
      * @param <V>  the type parameter
      * @param node the node
      */
-    static <K extends Comparable<K>, V> void calHeight(AvlNode<K, V> node) {
+    static <K extends Comparable<K>, V> void updateHeight(AvlNode<K, V> node) {
         node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
     }
 
@@ -78,8 +78,8 @@ public class AvlHelper {
         x.left = t3;
         y.right = x;
 
-        calHeight(x);
-        calHeight(y);
+        updateHeight(x);
+        updateHeight(y);
 
         return y;
     }
@@ -117,8 +117,8 @@ public class AvlHelper {
         x.right = t2;
         y.left = x;
 
-        calHeight(x);
-        calHeight(y);
+        updateHeight(x);
+        updateHeight(y);
 
         return y;
     }
