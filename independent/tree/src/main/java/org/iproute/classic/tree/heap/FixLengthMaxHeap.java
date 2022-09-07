@@ -65,9 +65,7 @@ public class FixLengthMaxHeap<T extends Comparable<T>> implements Heap<T> {
         if (values[parentPosition].compareTo(values[position]) < 0) {
             debugPrintln(String.format("shiftUp : current position = %d;parent's position = %d", position, parentPosition));
             swap(parentPosition, position);
-
-            position = parentPosition;
-            shiftUp(position);
+            shiftUp(parentPosition);
         }
     }
 
