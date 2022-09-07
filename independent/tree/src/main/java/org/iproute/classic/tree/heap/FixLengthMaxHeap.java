@@ -95,18 +95,16 @@ public class FixLengthMaxHeap<T extends Comparable<T>> implements Heap<T> {
         int right = 2 * position + 1;
 
         if (left <= size || right <= size) {
-            // 特殊的情况 left = size ; right = size + 1
+            int choose;
             if (right == size + 1) {
-                if (values[left].compareTo(values[position]) > 0) {
-                    swap(position, left);
-                }
-                // 最后的特殊判断，直接return
-                return;
+                // 特殊的情况 left = size ; right = size + 1
+                choose = left;
+            } else {
+                choose = values[left].compareTo(values[right]) > 0 ? left : right;
             }
 
-            int choose = values[left].compareTo(values[right]) > 0 ? left : right;
             if (values[choose].compareTo(values[position]) > 0) {
-                swap(position, choose);
+                swap(choose, position);
                 shiftDown(choose);
             }
         }
