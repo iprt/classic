@@ -114,21 +114,19 @@ public class SimpleBSTTest {
     public void testDelete() {
 
         BinarySearchTree<Integer, String> bst = new SimpleBST<>();
-
-        bst.add(5, "5");
-        bst.add(1, "1");
-        bst.add(3, "3");
         bst.add(2, "2");
+        bst.add(1, "1");
         bst.add(4, "4");
+        bst.add(3, "3");
+        bst.add(5, "5");
 
         BiConsumer<Integer, String> action = (k, v) -> System.out.printf("k = %d, v = %s%n", k, v);
 
         bst.bfs(action);
 
         bst.delete(2);
-
+        System.out.println();
         bst.bfs(action);
-
     }
 
 }
