@@ -135,31 +135,28 @@ public class AvlHelper {
     static <K extends Comparable<K>, V> AvlNode<K, V> balance(AvlNode<K, V> node) {
         int balanceFactor = getBalanceFactor(node);
 
-        int leftBF = getBalanceFactor(node.left);
-        int rightBF = getBalanceFactor(node.right);
-
         // LL
         if (balanceFactor == 2 &&
-                (leftBF == 1 || leftBF == 0)
+                (getBalanceFactor(node.left) == 1 || getBalanceFactor(node.left) == 0)
         ) {
             return rightRotate(node);
         }
 
         // RR
         if (balanceFactor == -2 &&
-                (rightBF == -1 || rightBF == 0)
+                (getBalanceFactor(node.right) == -1 || getBalanceFactor(node.right) == 0)
         ) {
             return leftRotate(node);
         }
 
         // LR
-        if (balanceFactor == 2 && leftBF == -1) {
+        if (balanceFactor == 2 && getBalanceFactor(node.left) == -1) {
             node.left = leftRotate(node.left);
             return rightRotate(node);
         }
 
         // RL
-        if (balanceFactor == -2 && rightBF == 1) {
+        if (balanceFactor == -2 && getBalanceFactor(node.right) == 1) {
             node.right = rightRotate(node.right);
             return leftRotate(node);
         }
