@@ -1,9 +1,9 @@
-package org.iproute.classic.graph.define.impl;
+package org.iproute.classic.graph.define.sparse;
 
 import org.iproute.classic.graph.define.Edge;
 import org.iproute.classic.graph.define.Graph;
 import org.iproute.classic.graph.define.Namespace;
-import org.iproute.classic.graph.define.Point;
+import org.iproute.classic.graph.define.Vertex;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ import java.util.StringJoiner;
  * @author winterfell
  * @since 2022/6/14
  */
-public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Namespace {
+public class SparseGraph<T, W extends Comparable<W>> implements Graph<T, W>, Namespace {
 
     /**
      * 图的隔离
@@ -33,7 +33,7 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
      * key 为 点
      * value 为 边的集合
      */
-    private final Map<Point<T>, Set<Edge<W, T>>> graph;
+    private final Map<Vertex<T>, Set<Edge<W, T>>> graph;
 
     /**
      * 存储一张图中所有的边
@@ -43,7 +43,7 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
     /**
      * 存储一场图中所有的点
      */
-    private final Set<Point<T>> allPoints;
+    private final Set<Vertex<T>> allVertices;
 
 
     /**
@@ -52,13 +52,13 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
      * @param namespace the namespace
      * @param direct    the direct
      */
-    public GraphImpl(String namespace, boolean direct) {
+    public SparseGraph(String namespace, boolean direct) {
         this.namespace = namespace;
         this.direct = direct;
 
         this.graph = new HashMap<>();
         this.allEdges = new HashSet<>();
-        this.allPoints = new HashSet<>();
+        this.allVertices = new HashSet<>();
 
     }
 
@@ -74,9 +74,9 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
 
     @Override
     public void show() {
-
-        System.out.println("点的个数为 : " + this.getPointCount());
-        System.out.println("边的个数为 : " + this.getEdgeCount());
+        System.out.println("是否为有向图：" + this.direct());
+        System.out.println("点的个数为 : " + this.verticesNum());
+        System.out.println("边的个数为 : " + this.edgesNum());
         System.out.println("--- show graph start ---");
 
         graph.forEach((p, es) -> {
@@ -92,22 +92,22 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
     }
 
     @Override
-    public int getPointCount() {
-        return this.allPoints.size();
+    public int verticesNum() {
+        return this.allVertices.size();
     }
 
     @Override
-    public int getEdgeCount() {
+    public int edgesNum() {
         return this.allEdges.size();
     }
 
     @Override
-    public Set<Point<T>> allPoints() {
-        return this.allPoints;
+    public Set<Vertex<T>> vertices() {
+        return this.allVertices;
     }
 
     @Override
-    public Set<Edge<W, T>> allEdges() {
+    public Set<Edge<W, T>> edges() {
         return this.allEdges;
     }
 
@@ -119,8 +119,8 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
             return;
         }
 
-        Point<T> from = edge.getFrom();
-        Point<T> to = edge.getTo();
+        Vertex<T> from = edge.getFrom();
+        Vertex<T> to = edge.getTo();
         W w = edge.getW();
 
         // 自环边，不做操作
@@ -151,33 +151,30 @@ public class GraphImpl<T, W extends Comparable<W>> implements Graph<T, W>, Names
             this.allEdges.add(edge);
         }
 
-
         // 添加点
-        this.allPoints.add(from);
-        this.allPoints.add(to);
+        this.allVertices.add(from);
+        this.allVertices.add(to);
     }
 
     @Override
-    public void connect(Point<T> from, Point<T> to, W w) {
-
+    public void connect(Vertex<T> from, Vertex<T> to, W w) {
         if (!this.namespace.equals(from.namespace()) || !this.namespace.equals(to.namespace())) {
             System.out.println("namespace error");
             return;
         }
-
 
         Edge<W, T> e = new Edge<>(namespace, from, to, w);
         this.addEdge(e);
     }
 
     @Override
-    public boolean hasEdge(Point<T> x, Point<T> y) {
+    public boolean hasEdge(Vertex<T> x, Vertex<T> y) {
         return false;
     }
 
     @Override
-    public Iterable<Edge<W, T>> adj(Point<T> point) {
-        Set<Edge<W, T>> edges = this.graph.get(point);
+    public Iterable<Edge<W, T>> adj(Vertex<T> vertex) {
+        Set<Edge<W, T>> edges = this.graph.get(vertex);
         return Objects.isNull(edges)
                 ? Collections.emptyList()
                 : edges;

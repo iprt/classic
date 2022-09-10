@@ -38,14 +38,14 @@ public interface Graph<T, W extends Comparable<W>> {
      *
      * @return the point count
      */
-    int getPointCount();
+    int verticesNum();
 
     /**
      * 获取边的个数
      *
      * @return the edge count
      */
-    int getEdgeCount();
+    int edgesNum();
 
 
     /**
@@ -53,14 +53,14 @@ public interface Graph<T, W extends Comparable<W>> {
      *
      * @return the set
      */
-    Set<Point<T>> allPoints();
+    Set<Vertex<T>> vertices();
 
     /**
      * 拿到所有的边
      *
      * @return the set
      */
-    Set<Edge<W, T>> allEdges();
+    Set<Edge<W, T>> edges();
 
     /**
      * 在图中添加一条边
@@ -76,7 +76,7 @@ public interface Graph<T, W extends Comparable<W>> {
      * @param to   the to
      * @param w    the w
      */
-    void connect(Point<T> from, Point<T> to, W w);
+    void connect(Vertex<T> from, Vertex<T> to, W w);
 
 
     /**
@@ -86,7 +86,7 @@ public interface Graph<T, W extends Comparable<W>> {
      * @param y the to
      * @return the boolean
      */
-    boolean hasEdge(Point<T> x, Point<T> y);
+    boolean hasEdge(Vertex<T> x, Vertex<T> y);
 
 
     /**
@@ -94,9 +94,9 @@ public interface Graph<T, W extends Comparable<W>> {
      * <p>
      * 根据一个点获取这个点所有的边
      *
-     * @param point the point
+     * @param vertex the point
      * @return the edge
      */
-    Iterable<Edge<W, T>> adj(Point<T> point);
+    Iterable<Edge<W, T>> adj(Vertex<T> vertex);
 
 }

@@ -1,7 +1,7 @@
-package org.iproute.classic.graph.algorithm;
+package org.iproute.classic.graph.algo;
 
 import org.iproute.classic.graph.define.Graph;
-import org.iproute.classic.graph.define.Point;
+import org.iproute.classic.graph.define.Vertex;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ public class Component<T, W extends Comparable<W>> {
     /**
      * 点是否被访问过
      */
-    private Map<Point<T>, Boolean> visited;
+    private Map<Vertex<T>, Boolean> visited;
 
     /**
      * 联通分量的个数
@@ -30,7 +30,7 @@ public class Component<T, W extends Comparable<W>> {
     /**
      * value表示联通的组 用来判断两个点是否连接在一起
      */
-    private Map<Point<T>, Integer> uf;
+    private Map<Vertex<T>, Integer> uf;
 
     public Component(Graph<T, W> g) {
         this.g = g;
@@ -38,14 +38,14 @@ public class Component<T, W extends Comparable<W>> {
     }
 
     private void componentInit() {
-        Set<Point<T>> points = this.g.allPoints();
-        this.visited = new HashMap<>(points.size());
-        points.forEach(p -> this.visited.put(p, false));
+        Set<Vertex<T>> vertices = this.g.vertices();
+        this.visited = new HashMap<>(vertices.size());
+        vertices.forEach(v -> this.visited.put(v, false));
 
-        this.uf = new HashMap<>(points.size());
-        points.forEach(p -> this.uf.put(p, -1));
+        this.uf = new HashMap<>(vertices.size());
+        vertices.forEach(v -> this.uf.put(v, -1));
 
-        this.componentCount = -1;
+        this.componentCount = 0;
     }
 
     /**
@@ -63,7 +63,7 @@ public class Component<T, W extends Comparable<W>> {
         this.componentCount = 0;
 
         // 随便拿出拿个点开始遍历
-        this.g.allPoints().forEach(p -> {
+        this.g.vertices().forEach(p -> {
             boolean v = this.visited.get(p);
             // 随便拿出一个点，如果图都是联通的，深度遍历一次就全部遍历并标记完了
             if (!v) {
@@ -78,17 +78,17 @@ public class Component<T, W extends Comparable<W>> {
     /**
      * Deep traversal. 深度遍历
      *
-     * @param p     the p
+     * @param v     the v
      * @param group the group
      */
-    private void deepTraversal(Point<T> p, int group) {
+    private void deepTraversal(Vertex<T> v, int group) {
         // 标记为访问了的
-        this.visited.put(p, true);
+        this.visited.put(v, true);
         // 同一个组
-        this.uf.put(p, group);
+        this.uf.put(v, group);
 
-        this.g.adj(p).forEach(edge -> {
-            Point<T> other = edge.other(p);
+        this.g.adj(v).forEach(edge -> {
+            Vertex<T> other = edge.other(v);
 
             // 边另外的点也没有被访问到
             boolean otherV = visited.get(other);
@@ -98,7 +98,7 @@ public class Component<T, W extends Comparable<W>> {
         });
     }
 
-    public boolean hasPath(Point<T> from, Point<T> to) {
+    public boolean hasPath(Vertex<T> from, Vertex<T> to) {
         Integer f = this.uf.get(from);
         Integer t = this.uf.get(to);
         if (f == null || t == null) {

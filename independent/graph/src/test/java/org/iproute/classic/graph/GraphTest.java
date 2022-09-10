@@ -1,12 +1,12 @@
 package org.iproute.classic.graph;
 
-import org.iproute.classic.graph.algorithm.Component;
-import org.iproute.classic.graph.algorithm.Dijkstra;
-import org.iproute.classic.graph.algorithm.Ring;
-import org.iproute.classic.graph.algorithm.Traverse;
+import org.iproute.classic.graph.algo.Component;
+import org.iproute.classic.graph.algo.Dijkstra;
+import org.iproute.classic.graph.algo.Ring;
+import org.iproute.classic.graph.algo.Traverse;
 import org.iproute.classic.graph.define.Graph;
-import org.iproute.classic.graph.define.Point;
-import org.iproute.classic.graph.define.impl.GraphImpl;
+import org.iproute.classic.graph.define.Vertex;
+import org.iproute.classic.graph.define.sparse.SparseGraph;
 import org.junit.Test;
 
 import java.util.UUID;
@@ -19,33 +19,55 @@ import java.util.UUID;
  */
 public class GraphTest {
 
+    private final static boolean DIRECTED = true;
+    private final static boolean UNDIRECTED = false;
+
     @Test
     public void showGraph() {
-
-        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), true);
+        Graph<String, Double> graph = new SparseGraph<>(UUID.randomUUID().toString(), DIRECTED);
 
         String namespace = graph.namespace();
-        Point<String> a = new Point<>(namespace, "A", null);
-        Point<String> b = new Point<>(namespace, "B", null);
+        Vertex<String> a = new Vertex<>(namespace, "A", null);
+        Vertex<String> b = new Vertex<>(namespace, "B", null);
         graph.connect(a, b, 1.0);
 
-        System.out.println("是否为有向图：" + graph.direct());
-
         graph.show();
-
     }
 
     @Test
-    public void dijkstra() {
-        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), false);
+    public void dijkstraByL() {
+        Graph<String, Double> graph = createForDijkstra();
+        // graph.show();
+        Dijkstra dijkstra = new Dijkstra(graph);
 
+        Vertex<String> a = new Vertex<>(graph.namespace(), "A");
+        dijkstra.calculateByL(a);
+
+        graph.vertices().forEach(dijkstra::printShortestRoute);
+    }
+
+    @Test
+    public void dijkstraByR() {
+        Graph<String, Double> graph = createForDijkstra();
+        // graph.show();
+
+        Dijkstra dijkstra = new Dijkstra(graph);
+
+        Vertex<String> a = new Vertex<>(graph.namespace(), "A");
+        dijkstra.calculateByR(a);
+
+        graph.vertices().forEach(dijkstra::printShortestRoute);
+    }
+
+    private Graph<String, Double> createForDijkstra() {
+        Graph<String, Double> graph = new SparseGraph<>(UUID.randomUUID().toString(), UNDIRECTED);
         String namespace = graph.namespace();
 
-        Point<String> a = new Point<>(namespace, "A", "A");
-        Point<String> b = new Point<>(namespace, "B", "B");
-        Point<String> c = new Point<>(namespace, "C", "C");
-        Point<String> d = new Point<>(namespace, "D", "D");
-        Point<String> e = new Point<>(namespace, "E", "E");
+        Vertex<String> a = new Vertex<>(namespace, "A");
+        Vertex<String> b = new Vertex<>(namespace, "B");
+        Vertex<String> c = new Vertex<>(namespace, "C");
+        Vertex<String> d = new Vertex<>(namespace, "D");
+        Vertex<String> e = new Vertex<>(namespace, "E");
 
 
         graph.connect(a, b, 4.0);
@@ -56,20 +78,36 @@ public class GraphTest {
         graph.connect(d, e, 7.0);
         graph.connect(c, e, 3.0);
 
-        graph.show();
+        return graph;
+    }
 
-        Dijkstra dijkstra = new Dijkstra(graph, a);
 
-        dijkstra.calculate();
+    @Test
+    public void testHasShortestRoute() {
+        Graph<String, Double> graph = new SparseGraph<>(UUID.randomUUID().toString(), DIRECTED);
+        String namespace = graph.namespace();
 
-        dijkstra.showPath(b);
+        Vertex<String> a = new Vertex<>(namespace, "A");
+        Vertex<String> b = new Vertex<>(namespace, "B");
+        Vertex<String> c = new Vertex<>(namespace, "C");
+        Vertex<String> d = new Vertex<>(namespace, "D");
+
+        graph.connect(a, b, 1.0);
+        graph.connect(b, c, 2.0);
+        graph.connect(a, c, 3.0);
+        graph.connect(d, c, 8.8);
+
+        Dijkstra dijkstra = new Dijkstra(graph);
+        dijkstra.calculateByR(a);
+
+        System.out.println("has shortest path from A to D : " + dijkstra.hasShortestRoute(d));
 
     }
 
+
     @Test
     public void traverse() {
-        boolean direct = false;
-        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), direct);
+        Graph<String, Double> graph = new SparseGraph<>(UUID.randomUUID().toString(), UNDIRECTED);
         String namespace = graph.namespace();
         /*
         1
@@ -80,14 +118,14 @@ public class GraphTest {
                 1-2-1
                 1-2-2
          */
-        Point<String> root = new Point<>(namespace, "1");
-        Point<String> p1_1 = new Point<>(namespace, "1-1");
-        Point<String> p1_1_1 = new Point<>(namespace, "1-1-1");
-        Point<String> p1_1_2 = new Point<>(namespace, "1-1-2");
+        Vertex<String> root = new Vertex<>(namespace, "1");
+        Vertex<String> p1_1 = new Vertex<>(namespace, "1-1");
+        Vertex<String> p1_1_1 = new Vertex<>(namespace, "1-1-1");
+        Vertex<String> p1_1_2 = new Vertex<>(namespace, "1-1-2");
 
-        Point<String> p1_2 = new Point<>(namespace, "1-2");
-        Point<String> p1_2_1 = new Point<>(namespace, "1-2-1");
-        Point<String> p1_2_2 = new Point<>(namespace, "1-2-2");
+        Vertex<String> p1_2 = new Vertex<>(namespace, "1-2");
+        Vertex<String> p1_2_1 = new Vertex<>(namespace, "1-2-1");
+        Vertex<String> p1_2_2 = new Vertex<>(namespace, "1-2-2");
 
         graph.connect(root, p1_1, 1.0);
         graph.connect(root, p1_2, 1.0);
@@ -108,17 +146,14 @@ public class GraphTest {
 
     @Test
     public void components() {
-
-        boolean direct = false;
-
-        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), direct);
+        Graph<String, Double> graph = new SparseGraph<>(UUID.randomUUID().toString(), UNDIRECTED);
 
         String namespace = graph.namespace();
-        Point<String> a = new Point<>(namespace, "A", null);
-        Point<String> b = new Point<>(namespace, "B", null);
+        Vertex<String> a = new Vertex<>(namespace, "A", null);
+        Vertex<String> b = new Vertex<>(namespace, "B", null);
 
-        Point<String> c = new Point<>(namespace, "C", null);
-        Point<String> d = new Point<>(namespace, "D", null);
+        Vertex<String> c = new Vertex<>(namespace, "C", null);
+        Vertex<String> d = new Vertex<>(namespace, "D", null);
 
         graph.connect(a, b, 1.0);
         graph.connect(c, d, 2.0);
@@ -137,16 +172,15 @@ public class GraphTest {
 
     @Test
     public void ring() {
-        boolean direct = true;
-        Graph<String, Double> graph = new GraphImpl<>(UUID.randomUUID().toString(), direct);
+        Graph<String, Double> graph = new SparseGraph<>(UUID.randomUUID().toString(), DIRECTED);
 
         String namespace = graph.namespace();
 
-        Point<String> a = new Point<>(namespace, "A", null);
-        Point<String> b = new Point<>(namespace, "B", null);
+        Vertex<String> a = new Vertex<>(namespace, "A", null);
+        Vertex<String> b = new Vertex<>(namespace, "B", null);
 
-        Point<String> c = new Point<>(namespace, "C", null);
-        Point<String> d = new Point<>(namespace, "D", null);
+        Vertex<String> c = new Vertex<>(namespace, "C", null);
+        Vertex<String> d = new Vertex<>(namespace, "D", null);
 
         // a -> b -> c -> d
         graph.connect(a, b, 1.0);

@@ -1,8 +1,8 @@
-package org.iproute.classic.graph.algorithm;
+package org.iproute.classic.graph.algo;
 
 import org.iproute.classic.graph.define.Edge;
 import org.iproute.classic.graph.define.Graph;
-import org.iproute.classic.graph.define.Point;
+import org.iproute.classic.graph.define.Vertex;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +30,7 @@ public class Ring {
      * <p>
      * value = 2 表示该店被访问过两次
      */
-    private Map<Point<String>, Integer> visitedStatus;
+    private Map<Vertex<String>, Integer> visitedStatus;
 
     public Ring(Graph<String, Double> g) {
         this.g = g;
@@ -43,11 +43,11 @@ public class Ring {
      */
     private void init() {
         this.hasRing = 0;
-        Set<Point<String>> points = this.g.allPoints();
+        Set<Vertex<String>> vertices = this.g.vertices();
 
-        this.visitedStatus = new HashMap<>(points.size());
+        this.visitedStatus = new HashMap<>(vertices.size());
 
-        points.forEach(p -> {
+        vertices.forEach(p -> {
             // this.visited.put(p, false);
             this.visitedStatus.put(p, 0);
         });
@@ -59,7 +59,7 @@ public class Ring {
      *
      * @param s 入度为0的点？
      */
-    public void calculate(Point<String> s) {
+    public void calculate(Vertex<String> s) {
         if (!this.g.direct()) {
             System.out.println("无向图，不需要计算");
             return;
@@ -76,12 +76,11 @@ public class Ring {
         return this.hasRing > 0;
     }
 
-    private void dfs(Point<String> p) {
+    private void dfs(Vertex<String> p) {
         this.visitedStatus.put(p, 1);
 
-
         for (Edge<Double, String> edge : this.g.adj(p)) {
-            Point<String> other = edge.other(p);
+            Vertex<String> other = edge.other(p);
             Integer v = this.visitedStatus.get(other);
             if (v != 1) {
                 if (v == 0) {
@@ -96,10 +95,7 @@ public class Ring {
             }
 
         }
-
-
         this.visitedStatus.put(p, 2);
-
     }
 }
 

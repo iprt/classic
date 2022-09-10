@@ -6,7 +6,7 @@ package org.iproute.classic.graph.define;
  * @author winterfell
  * @since 2022/6/13
  */
-public class Point<T> implements Namespace {
+public class Vertex<T> implements Namespace {
 
     private int hash;
     private final String namespace;
@@ -28,12 +28,12 @@ public class Point<T> implements Namespace {
         return this.namespace;
     }
 
-    public Point(String namespace, String sign) {
+    public Vertex(String namespace, String sign) {
         this.namespace = namespace;
         this.sign = sign;
     }
 
-    public Point(String namespace, String sign, T content) {
+    public Vertex(String namespace, String sign, T content) {
         this.namespace = namespace;
         this.sign = sign;
         this.content = content;
@@ -60,18 +60,18 @@ public class Point<T> implements Namespace {
     @Override
     @SuppressWarnings("all")
     public boolean equals(Object obj) {
-        if (!(obj instanceof Point)) {
+        if (!(obj instanceof Vertex)) {
             return false;
         }
-        if (!this.namespace.equals(((Point<?>) obj).namespace)) {
+        if (!this.namespace.equals(((Vertex<?>) obj).namespace)) {
             return false;
         }
-        return this.sign.equals(((Point) obj).sign);
+        return this.sign.equals(((Vertex) obj).sign);
     }
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "Vertex{" +
                 "sign='" + sign + '\'' +
                 '}';
     }

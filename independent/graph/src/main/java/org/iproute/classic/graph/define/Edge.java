@@ -18,8 +18,8 @@ public class Edge<W extends Comparable<W>, T> implements Namespace {
     /**
      * 一条边存在两个点，from --> to
      */
-    private final Point<T> from;
-    private final Point<T> to;
+    private final Vertex<T> from;
+    private final Vertex<T> to;
 
     /**
      * 这条边的权重
@@ -29,7 +29,7 @@ public class Edge<W extends Comparable<W>, T> implements Namespace {
 
     // 提供边的初始化方法
 
-    public Edge(String namespace, Point<T> from, Point<T> to, W w) {
+    public Edge(String namespace, Vertex<T> from, Vertex<T> to, W w) {
         this.namespace = namespace;
         this.from = from;
         this.to = to;
@@ -60,7 +60,7 @@ public class Edge<W extends Comparable<W>, T> implements Namespace {
      * @param x the x
      * @return the point
      */
-    public Point<T> other(Point<T> x) {
+    public Vertex<T> other(Vertex<T> x) {
         if (x == null) {
             return null;
         }
@@ -71,11 +71,11 @@ public class Edge<W extends Comparable<W>, T> implements Namespace {
      * 提供对应的get方法
      */
 
-    public Point<T> getFrom() {
+    public Vertex<T> getFrom() {
         return from;
     }
 
-    public Point<T> getTo() {
+    public Vertex<T> getTo() {
         return to;
     }
 

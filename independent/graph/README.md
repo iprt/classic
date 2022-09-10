@@ -76,7 +76,7 @@
 
 ## 点和边的说明
 
-### 1. `Point<T>` 的说明
+### 1. `Vertex<T>` 的说明
 
 **属性说明：**
 
@@ -137,10 +137,11 @@ Map<Point,Set<Point> g = new HashMap<>();
 
 但是如果针对有权重的图，我一开始想到的是 `Map<Point,Set<PointAndWeight>>` 这样的 Map
 
-- 其中 PointAndWeight 是 point + weight
+- 其中 PointAndWeight 是 vertex + weight
 
-似乎也是可以的，但是再想一下，point + weight 如果再加个point的话，不就是边的描述了么；虽然很多情况下，用的时候，只需要 point + weight，但是把边描述进去，就更优雅了
-> 注意： point + weight 也是一种描述的方式
+似乎也是可以的，但是再想一下，vertex + weight 如果再加个point的话，不就是边的描述了么；虽然很多情况下，用的时候，只需要 vertex
++ weight，但是把边描述进去，就更优雅了
+> 注意： vertex + weight 也是一种描述的方式
 
 ### 图中的方法的个人思考
 
@@ -152,7 +153,8 @@ Map<Point,Set<Point> g = new HashMap<>();
 
 要保证图在各种操作的时候可以递归，那么基于每个点就要能拿到周边的其他的点
 
-我在描述邻接表的时候，每个点周边的其他的点没有用 `point + weight` ，用的是 `edge`，所以对于图中的存在的点，<font color=red>很重要的一个方法就是获取这个点的相邻的点或者边</font>
+我在描述邻接表的时候，每个点周边的其他的点没有用 `vertex + weight` ，用的是 `edge`，所以对于图中的存在的点，<font color=red>
+很重要的一个方法就是获取这个点的相邻的点或者边</font>
 
 - 这个方法就是邻边迭代器 `adj(Point):Set<Edge>`,基于点获取边的集合
 - 有了邻边迭代器，才能舒舒服服的对图进行分析
@@ -172,8 +174,8 @@ Map<Point,Set<Point> g = new HashMap<>();
 
 - `Map<Point<T>,Set<Edge<T,W> g`：邻接矩阵
 - `direct` : 是否有向图
-- `allEdges` : 所有的边
-- `allPoints` : 所有的点
+- `edges` : 所有的边
+- `vertexs` : 所有的点
 - `namespace` ： 命名空间
 
 **方法说明**

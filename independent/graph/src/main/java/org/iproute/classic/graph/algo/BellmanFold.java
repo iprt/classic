@@ -1,4 +1,4 @@
-package org.iproute.classic.graph.algorithm;
+package org.iproute.classic.graph.algo;
 
 import org.iproute.classic.graph.define.Graph;
 
