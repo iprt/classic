@@ -18,7 +18,7 @@ import static org.iproute.classic.graph.GraphTest.UNDIRECTED;
 public class DfsTest {
 
     @Test
-    public void testFindAllRoute() {
+    public void testFindRoutes1() {
 
         Graph<String, Double> graph = new SparseGraph<>(UUID.randomUUID().toString(), UNDIRECTED);
 
@@ -41,6 +41,13 @@ public class DfsTest {
 
         graph.connect(c, f, 1.0);
 
+        //            F
+        //          /
+        //         C
+        //       /   \
+        // A - B      E
+        //       \   /
+        //         D
 
         Dfs dfs = new Dfs(graph);
 
@@ -50,7 +57,7 @@ public class DfsTest {
     }
 
     @Test
-    public void testFindAllRoute2() {
+    public void testFindRoutes2() {
 
         Graph<String, Double> graph = new SparseGraph<>(UUID.randomUUID().toString(), UNDIRECTED);
 
@@ -74,7 +81,11 @@ public class DfsTest {
         graph.connect(b, c, 1.0);
         graph.connect(c, d, 1.0);
 
-
+        //      B
+        //   /  |  \
+        // A - C - E
+        //  \  |  /
+        //     D
         Dfs dfs = new Dfs(graph);
 
         // dfs.findAllRoutes(a, e);
