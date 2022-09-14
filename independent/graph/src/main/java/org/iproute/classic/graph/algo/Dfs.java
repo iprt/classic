@@ -106,9 +106,9 @@ public class Dfs {
      *
      * @param v       the v
      * @param visited the visited
-     * @param routes  the sub routes
+     * @param vRoutes  the sub vRoutes
      */
-    private void dfsRecordV(Vertex<String> v, Map<Vertex<String>, Boolean> visited, VertexRoutes routes) {
+    private void dfsRecordV(Vertex<String> v, Map<Vertex<String>, Boolean> visited, VertexRoutes vRoutes) {
         visited.put(v, true);
 
         for (Edge<Double, String> e : this.g.adj(v)) {
@@ -118,7 +118,7 @@ public class Dfs {
                 List<Vertex<String>> find = new ArrayList<>(1);
                 // C-E 这条边
                 find.add(other);
-                routes.rts.add(find);
+                vRoutes.rts.add(find);
                 visited.put(other, true);
             } else if (!visited.get(other)) {
                 Map<Vertex<String>, Boolean> subVisited = new HashMap<>(this.g.verticesNum());
@@ -137,7 +137,7 @@ public class Dfs {
                         mergeRoute.add(other);
                         mergeRoute.addAll(contains);
 
-                        routes.rts.add(mergeRoute);
+                        vRoutes.rts.add(mergeRoute);
                     }
                 }
                 // for release memory
@@ -161,7 +161,7 @@ public class Dfs {
     }
 
 
-    private void dfsRecordE(Vertex<String> v, Map<Vertex<String>, Boolean> visited, EdgeRoutes routes) {
+    private void dfsRecordE(Vertex<String> v, Map<Vertex<String>, Boolean> visited, EdgeRoutes vRoutes) {
         visited.put(v, true);
 
         for (Edge<Double, String> edge : this.g.adj(v)) {
@@ -171,7 +171,7 @@ public class Dfs {
                 List<Edge<Double, String>> findRoute = new ArrayList<>(1);
                 findRoute.add(edge);
 
-                routes.rts.add(findRoute);
+                vRoutes.rts.add(findRoute);
                 // 标记为已经访问的
                 visited.put(to, true);
             } else if (!visited.get(to)) {
@@ -185,7 +185,7 @@ public class Dfs {
                         mergeRoute.add(edge);
                         mergeRoute.addAll(contains);
 
-                        routes.rts.add(mergeRoute);
+                        vRoutes.rts.add(mergeRoute);
                     }
                 }
 
