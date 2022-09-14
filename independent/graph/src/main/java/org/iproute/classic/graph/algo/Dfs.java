@@ -78,7 +78,8 @@ public class Dfs {
 
     public void printRoutesByV(Vertex<String> src, Vertex<String> dest) {
         List<List<Vertex<String>>> allRoutes = findRoutesByV(src, dest);
-        System.out.printf("一共有 %d 条路径\n", allRoutes.size());
+        System.out.printf("从 %s 到 %s 共有 %d 条路径\n", src.getSign(), dest.getSign(), allRoutes.size());
+
         allRoutes.forEach(route -> {
             System.out.print(src.getSign());
             route.forEach(v -> System.out.print(" -> " + v.getSign()));
@@ -88,7 +89,7 @@ public class Dfs {
 
     public void printRoutesByE(Vertex<String> src, Vertex<String> dest) {
         List<List<Edge<Double, String>>> allRoutes = findRoutesByE(src, dest);
-        System.out.printf("一共有 %d 条路径\n", allRoutes.size());
+        System.out.printf("从 %s 到 %s 共有 %d 条路径\n", src.getSign(), dest.getSign(), allRoutes.size());
 
         allRoutes.forEach(route -> {
             Optional<Double> reduce = route.stream().map(Edge::getW).reduce(Double::sum);
@@ -106,7 +107,7 @@ public class Dfs {
      *
      * @param v       the v
      * @param visited the visited
-     * @param vRoutes  the sub vRoutes
+     * @param vRoutes the sub vRoutes
      */
     private void dfsRecordV(Vertex<String> v, Map<Vertex<String>, Boolean> visited, VertexRoutes vRoutes) {
         visited.put(v, true);
