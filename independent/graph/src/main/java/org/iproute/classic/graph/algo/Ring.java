@@ -17,7 +17,7 @@ import java.util.Set;
  * @since 2022/6/25
  */
 public class Ring {
-    private Graph<String, Double> g;
+    private final Graph<String, Double> g;
 
     private int hasRing;
 

@@ -19,7 +19,7 @@ import java.util.PriorityQueue;
  */
 public class Dijkstra {
 
-    private Graph<String, Double> g;
+    private final Graph<String, Double> g;
 
     private Vertex<String> source;
 

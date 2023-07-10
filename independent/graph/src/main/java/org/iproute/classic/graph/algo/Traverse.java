@@ -19,7 +19,7 @@ import java.util.function.Consumer;
  */
 public class Traverse<T, W extends Comparable<W>> {
 
-    private Graph<T, W> g;
+    private final Graph<T, W> g;
 
     private Map<Vertex<T>, Boolean> visited;
 
