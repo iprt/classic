@@ -1,9 +1,7 @@
 package org.iproute.dynamicprogramming;
 
 /**
- * @author zzj
- * @create 2018-5-25
- * 动态规划最大子序列问题
+ * @author tech@intellij.io
  */
 public class ClassicDemo1 {
 
@@ -24,9 +22,6 @@ public class ClassicDemo1 {
 
     /**
      * 求arr的最大子序列
-     *
-     * @param arr
-     * @return
      */
     public static int solve(int[] arr) {
         int len = arr.length;

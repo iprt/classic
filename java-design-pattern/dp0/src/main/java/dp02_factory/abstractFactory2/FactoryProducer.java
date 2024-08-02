@@ -3,7 +3,7 @@ package dp02_factory.abstractFactory2;
 /**
  * FactoryProducer
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/7/9
  */
 public class FactoryProducer {

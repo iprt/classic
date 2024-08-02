@@ -3,7 +3,7 @@ package org.iproute.p002_add_two_numbers;
 /**
  * 两数相加
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Solution {
 

@@ -4,7 +4,7 @@ import java.util.Date;
 
 //测试深复制
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Sheep2 implements Cloneable {   //1997,英国的克隆羊，多利！
     private String sname;

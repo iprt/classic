@@ -1,7 +1,7 @@
 package org.iproute.creating.factory.factorymethod;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Byd implements Car {
 

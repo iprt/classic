@@ -1,7 +1,7 @@
 package org.iproute.creating.factory.abstractFactory;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface CarFactory {
     Engine createEngine();

@@ -7,7 +7,7 @@ import dp02_factory.abstractFactory2.impl.shape.Square;
 /**
  * ShapeFactory
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/7/9
  */
 public class ShapeFactory extends AbstractFactory {

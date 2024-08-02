@@ -5,7 +5,7 @@ package org.iproute.creating.prototype;
  * 如果需要短时间创建大量对象，并且new的过程比较耗时。则可以考虑使用原型模式！
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client4 {
 

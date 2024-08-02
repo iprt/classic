@@ -1,7 +1,7 @@
 package org.iproute.simpleGraph;
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-25
  */
 public interface Graph {

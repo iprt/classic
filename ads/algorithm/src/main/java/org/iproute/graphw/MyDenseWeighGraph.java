@@ -4,15 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-27
- * Time    :       15:54
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  * <p>
- * 邻接举证
+ * 邻接矩阵
  **/
 public class MyDenseWeighGraph<Weight extends Number & Comparable> implements WeightGraphDesign<Weight> {
 

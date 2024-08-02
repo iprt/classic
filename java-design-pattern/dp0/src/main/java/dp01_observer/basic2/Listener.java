@@ -3,7 +3,7 @@ package dp01_observer.basic2;
 /**
  * 持有 被观察者对象
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface Listener {
 

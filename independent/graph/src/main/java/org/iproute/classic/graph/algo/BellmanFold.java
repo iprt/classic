@@ -5,7 +5,7 @@ import org.iproute.classic.graph.define.Graph;
 /**
  * BellmanFold 负权图的最短路径
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/25
  */
 public class BellmanFold {

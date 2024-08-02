@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * DfsComponent 深度遍历求无向图的联通分量
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/22
  */
 public class Component<T, W extends Comparable<W>> {

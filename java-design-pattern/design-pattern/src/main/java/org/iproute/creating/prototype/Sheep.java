@@ -5,7 +5,7 @@ import java.util.Date;
 
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Sheep implements Cloneable, Serializable {   //1997,英国的克隆羊，多利！
     private String sname;

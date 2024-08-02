@@ -8,7 +8,7 @@ package org.iproute.action.memento;
  **/
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class CareTaker {
 

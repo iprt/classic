@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class MyInvocationHandler<T> implements InvocationHandler {
 

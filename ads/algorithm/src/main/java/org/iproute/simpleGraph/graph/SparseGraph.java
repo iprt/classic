@@ -5,7 +5,7 @@ import org.iproute.simpleGraph.Graph;
 import java.util.ArrayList;
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-25
  * 邻接矩阵表示稀疏图
  */

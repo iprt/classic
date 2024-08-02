@@ -7,7 +7,7 @@ package org.iproute.action.command;
  */
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Receiver {
     public void action() {

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-25
  */
 public class GraphHelper {

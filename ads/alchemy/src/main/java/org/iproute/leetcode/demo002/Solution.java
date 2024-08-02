@@ -3,7 +3,7 @@ package org.iproute.leetcode.demo002;
 /**
  * Solution
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/11/23
  */
 public class Solution {

@@ -1,7 +1,7 @@
 package org.iproute.action.chain;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class LeaveRequest {
 

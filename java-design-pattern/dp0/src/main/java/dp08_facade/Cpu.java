@@ -1,7 +1,7 @@
 package dp08_facade;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Cpu {
 

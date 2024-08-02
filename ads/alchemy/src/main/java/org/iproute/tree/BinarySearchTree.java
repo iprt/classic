@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * BinarySearchTree
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/11/15
  */
 public class BinarySearchTree {

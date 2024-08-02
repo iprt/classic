@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * java 值传递 和 引用传递的问题
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/11/15
  */
 public class Problem {

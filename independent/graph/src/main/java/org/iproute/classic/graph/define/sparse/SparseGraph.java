@@ -16,7 +16,7 @@ import java.util.StringJoiner;
 /**
  * 图的实现
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/14
  */
 public class SparseGraph<T, W extends Comparable<W>> implements Graph<T, W>, Namespace {

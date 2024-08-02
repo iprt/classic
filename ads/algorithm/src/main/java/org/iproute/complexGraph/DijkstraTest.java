@@ -5,7 +5,7 @@ import org.iproute.complexGraph.define.Point;
 import org.iproute.complexGraph.define.WeightedGraph;
 
 /**
- * @author :       zhuzhenjie
+ * @author tech@intellij.io
  * Company :      Beijing Tepia (Wuhan R&D Center)
  **/
 public class DijkstraTest {

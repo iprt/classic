@@ -10,7 +10,7 @@ import dp02_factory.abstractFactory.components.detail.I5Cpu;
 import dp02_factory.abstractFactory.components.detail.SilveryPower;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class SimpleComputer implements Computer {
     @Override

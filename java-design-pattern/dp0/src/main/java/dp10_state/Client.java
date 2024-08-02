@@ -4,7 +4,7 @@ package dp10_state;
 /**
  * 状态模式
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
 

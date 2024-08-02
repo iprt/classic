@@ -4,7 +4,7 @@ package dp03_singleton;
  * double check 的单例
  * 保证了多线程状态的下的单例安全
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Singleton {
 

@@ -5,7 +5,7 @@ import org.iproute.simpleGraph.graph.SparseGraph;
 
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-25
  */
 public class Test01 {

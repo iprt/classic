@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class FilterChain {
 

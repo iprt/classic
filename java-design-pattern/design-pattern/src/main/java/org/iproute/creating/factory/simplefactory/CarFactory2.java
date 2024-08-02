@@ -1,7 +1,7 @@
 package org.iproute.creating.factory.simplefactory;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class CarFactory2 {
     public static Car createByd() {

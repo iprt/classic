@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-28
  * 利用切分定理求最小生成树
  */

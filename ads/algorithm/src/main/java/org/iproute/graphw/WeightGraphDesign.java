@@ -1,13 +1,7 @@
 package org.iproute.graphw;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-27
- * Time    :       15:51
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  * <p>
  * 有权图接口设计
  **/

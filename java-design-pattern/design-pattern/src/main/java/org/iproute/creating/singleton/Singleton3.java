@@ -3,10 +3,10 @@ package org.iproute.creating.singleton;
 /**
  * 静态内部类实现单例模式
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Singleton3 {
 

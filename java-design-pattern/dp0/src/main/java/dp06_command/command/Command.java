@@ -1,7 +1,7 @@
 package dp06_command.command;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface Command {
 

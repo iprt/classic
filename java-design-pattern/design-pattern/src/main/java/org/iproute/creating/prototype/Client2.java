@@ -6,7 +6,7 @@ import java.util.Date;
  * 原型模式(深复制)
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client2 {
     public static void main(String[] args) throws CloneNotSupportedException {

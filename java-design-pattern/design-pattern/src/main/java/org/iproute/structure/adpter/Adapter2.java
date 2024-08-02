@@ -3,10 +3,10 @@ package org.iproute.structure.adpter;
 /**
  * 对象适配器
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Adapter2 implements Target {
 

@@ -1,7 +1,7 @@
 package dp01_observer.basic;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class ObserverImpl2 implements Observer {
 

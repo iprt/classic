@@ -1,7 +1,7 @@
 package org.iproute.structure.proxy.dynamic;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package org.iproute.action.Mediator;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Development implements Department {
 

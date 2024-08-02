@@ -1,7 +1,7 @@
 package org.iproute.action.Mediator;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Market implements Department {
     private Mediator m;  //持有中介者(总经理)的引用

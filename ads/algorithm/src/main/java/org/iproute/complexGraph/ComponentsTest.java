@@ -5,7 +5,7 @@ import org.iproute.complexGraph.define.Point;
 import org.iproute.complexGraph.define.WeightedGraph;
 
 /**
- * @author :       zhuzhenjie
+ * @author tech@intellij.io
  **/
 public class ComponentsTest {
 

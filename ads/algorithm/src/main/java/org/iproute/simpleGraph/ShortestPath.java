@@ -3,7 +3,7 @@ package org.iproute.simpleGraph;
 import java.util.*;
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-28
  */
 public class ShortestPath {

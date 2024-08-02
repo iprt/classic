@@ -6,7 +6,7 @@ import dp02_factory.abstractFactory.components.Motherboard;
 import dp02_factory.abstractFactory.components.Power;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface Computer {
 

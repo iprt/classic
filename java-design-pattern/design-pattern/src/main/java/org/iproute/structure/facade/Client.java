@@ -1,7 +1,7 @@
 package org.iproute.structure.facade;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
     public static Facade f = new Facade(new SubSystem1(), new SubSystem2(), new SubSystem3(), new SubSystem4());

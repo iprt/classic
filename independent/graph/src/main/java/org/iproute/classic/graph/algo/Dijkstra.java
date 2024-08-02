@@ -14,7 +14,7 @@ import java.util.PriorityQueue;
 /**
  * Dijkstra 单源最短路径
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/14
  */
 public class Dijkstra {

@@ -6,7 +6,7 @@ import java.lang.reflect.Proxy;
 /**
  * Main
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/7/13
  */
 public class Main {

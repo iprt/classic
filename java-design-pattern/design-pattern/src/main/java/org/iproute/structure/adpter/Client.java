@@ -3,10 +3,10 @@ package org.iproute.structure.adpter;
 /**
  * 相当于笔记本电刀
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
 

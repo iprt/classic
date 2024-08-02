@@ -3,13 +3,7 @@ package org.iproute.graph;
 import java.util.*;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-27
- * Time    :       15:32
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  * 无权图最短路径
  **/
 public class MyShortedPath {

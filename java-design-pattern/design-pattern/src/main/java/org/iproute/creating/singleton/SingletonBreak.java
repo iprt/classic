@@ -4,10 +4,10 @@ package org.iproute.creating.singleton;
  * 如何破解单例模式
  * 思路 reflect
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class SingletonBreak {
     public static void main(String[] args) {

@@ -3,13 +3,7 @@ package org.iproute.graphw;
 import java.util.ArrayList;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-27
- * Time    :       18:08
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  **/
 public class MySparseWeightGraph<Weight extends Number & Comparable> implements WeightGraphDesign<Weight> {
 

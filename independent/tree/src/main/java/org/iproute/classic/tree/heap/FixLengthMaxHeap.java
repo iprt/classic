@@ -5,7 +5,7 @@ import org.iproute.classic.tree.Heap;
 /**
  * 最小堆的实现
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/30
  */
 public class FixLengthMaxHeap<T extends Comparable<T>> implements Heap<T> {

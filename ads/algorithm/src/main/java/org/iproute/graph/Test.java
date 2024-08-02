@@ -1,13 +1,7 @@
 package org.iproute.graph;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-26
- * Time    :       16:08
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  **/
 public class Test {
 
@@ -28,10 +22,6 @@ public class Test {
         MyShortedPath myShortedPath = new MyShortedPath(g, 0);
 
         myShortedPath.showPath(9);
-
-
-
-
 
 
     }

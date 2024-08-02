@@ -1,20 +1,14 @@
 package org.iproute.graph;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-26
- * Time    :       18:00
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  **/
 public class MyComponents {
 
-    private GraphDesign g;
+    private final GraphDesign g;
 
     // 某个点是否被访问了
-    private boolean[] visited;
+    private final boolean[] visited;
 
     private int ccount;
 

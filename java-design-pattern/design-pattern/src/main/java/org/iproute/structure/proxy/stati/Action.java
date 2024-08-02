@@ -3,7 +3,7 @@ package org.iproute.structure.proxy.stati;
 /**
  * 一系类行为接口
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface Action {
 

@@ -1,7 +1,7 @@
 package org.iproute.structure.decorator;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class SupperCar implements ICar {
     private ICar car;

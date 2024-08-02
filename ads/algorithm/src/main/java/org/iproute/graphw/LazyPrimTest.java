@@ -4,7 +4,7 @@ package org.iproute.graphw;
 /**
  * Created by      Intellij IDEA
  *
- * @author :       zhuzhenjie
+ * @author tech@intellij.io
  * Date    :       2018-12-28
  * Time    :       17:44
  * Version :       1.0

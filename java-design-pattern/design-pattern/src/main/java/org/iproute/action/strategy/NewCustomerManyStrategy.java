@@ -1,7 +1,7 @@
 package org.iproute.action.strategy;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class NewCustomerManyStrategy implements Strategy {
 

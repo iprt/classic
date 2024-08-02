@@ -1,7 +1,7 @@
 package org.iproute.creating.builder;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Iphone6sDirector implements IphoneDirector {
 

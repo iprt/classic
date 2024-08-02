@@ -1,10 +1,10 @@
 package org.iproute.creating.factory.abstractFactory;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
     public static void main(String[] args) {

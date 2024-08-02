@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * HashTest
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/30
  */
 public class HashTest {

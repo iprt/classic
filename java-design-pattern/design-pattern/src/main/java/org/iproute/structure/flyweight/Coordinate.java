@@ -1,7 +1,7 @@
 package org.iproute.structure.flyweight;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Coordinate {
     private int x;

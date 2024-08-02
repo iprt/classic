@@ -13,7 +13,7 @@ import java.util.Set;
  * <p>
  * 通过 dfs 来判断是否有环
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/25
  */
 public class Ring {

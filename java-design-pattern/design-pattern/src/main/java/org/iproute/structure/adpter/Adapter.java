@@ -5,10 +5,10 @@ package org.iproute.structure.adpter;
  * (转接口)
  * 类适配器模式
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Adapter extends Adaptee implements Target {
 

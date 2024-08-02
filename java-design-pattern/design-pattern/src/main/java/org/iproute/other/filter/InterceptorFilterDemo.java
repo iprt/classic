@@ -1,7 +1,7 @@
 package org.iproute.other.filter;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class InterceptorFilterDemo {
 

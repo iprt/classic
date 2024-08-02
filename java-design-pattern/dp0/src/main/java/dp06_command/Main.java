@@ -7,7 +7,7 @@ import dp06_command.receiver.AudioPlayer;
 import dp06_command.requester.Keypad;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Main {
 

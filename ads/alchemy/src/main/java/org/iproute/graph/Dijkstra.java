@@ -5,7 +5,13 @@ import org.iproute.graph.define.Edge;
 import org.iproute.graph.define.Graph;
 import org.iproute.graph.define.Point;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.PriorityQueue;
+import java.util.Stack;
 import java.util.stream.Collectors;
 
 /**
@@ -18,7 +24,7 @@ public class Dijkstra {
     /**
      * 图的引用
      */
-    private Graph<String, Double> g;
+    private final Graph<String, Double> g;
 
     /**
      * 指定源节点

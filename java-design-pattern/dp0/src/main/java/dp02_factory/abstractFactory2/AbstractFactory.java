@@ -3,7 +3,7 @@ package dp02_factory.abstractFactory2;
 /**
  * AbstractFactory
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/7/9
  */
 public abstract class AbstractFactory {

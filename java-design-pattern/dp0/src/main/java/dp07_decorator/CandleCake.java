@@ -1,7 +1,7 @@
 package dp07_decorator;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class CandleCake extends Decorator {
 

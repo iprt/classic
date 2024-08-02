@@ -7,7 +7,7 @@ package org.iproute.classic.graph.define;
  * <p>
  * T：点存放的内容
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/13
  */
 public class Edge<W extends Comparable<W>, T> implements Namespace {

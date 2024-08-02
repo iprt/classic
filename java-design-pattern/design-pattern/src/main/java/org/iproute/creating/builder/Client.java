@@ -1,10 +1,10 @@
 package org.iproute.creating.builder;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
     public static void main(String[] args) {

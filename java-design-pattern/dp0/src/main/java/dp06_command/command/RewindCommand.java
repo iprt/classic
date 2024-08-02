@@ -3,7 +3,7 @@ package dp06_command.command;
 import dp06_command.receiver.AudioPlayer;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class RewindCommand implements Command {
 

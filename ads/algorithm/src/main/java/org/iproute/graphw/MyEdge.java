@@ -1,13 +1,7 @@
 package org.iproute.graphw;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-27
- * Time    :       15:28
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  * 有权的图从边开始定义
  **/
 public class MyEdge<W extends Comparable> implements Comparable<MyEdge> {

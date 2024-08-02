@@ -1,7 +1,7 @@
 package org.iproute.leetcode.kmp;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  **/
 public class Kmp {
 

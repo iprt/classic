@@ -4,13 +4,7 @@ package org.iproute.graphw;
 import java.util.Vector;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-28
- * Time    :       16:24
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  * <p>
  * 利用切分定理求最小生成树
  * 针对无向图

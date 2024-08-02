@@ -1,10 +1,10 @@
 package org.iproute.creating.builder;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Iphone {
 
@@ -45,7 +45,7 @@ public class Iphone {
 }
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 class Motherboard {
     private String name;
@@ -66,7 +66,7 @@ class Motherboard {
 }
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 class Battery {
     private String name;
@@ -87,7 +87,7 @@ class Battery {
 }
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 class Display {
     private String name;

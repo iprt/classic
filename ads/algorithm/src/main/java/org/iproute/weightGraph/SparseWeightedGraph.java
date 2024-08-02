@@ -3,7 +3,7 @@ package org.iproute.weightGraph;
 import java.util.ArrayList;
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-28
  */
 public class SparseWeightedGraph<Weight extends Number & Comparable> implements WeightedGraph {

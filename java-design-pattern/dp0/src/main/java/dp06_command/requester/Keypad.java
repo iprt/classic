@@ -5,7 +5,7 @@ import dp06_command.command.Command;
 /**
  * 封装的请求者
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Keypad {
 

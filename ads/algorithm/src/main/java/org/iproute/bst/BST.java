@@ -88,7 +88,7 @@ public class BST<K extends Comparable<K>, V> {
     private Node<K, V> insert(Node<K, V> node, K key, V value) {
         if (node == null) {
             count++;
-            return new Node(key, value);
+            return new Node<>(key, value);
         }
         if (key.compareTo(node.key) < 0) {
             node.left = insert(node.left, key, value);
@@ -138,7 +138,7 @@ public class BST<K extends Comparable<K>, V> {
         }
     }
 
-    class Node<K extends Comparable, V> {
+    static class Node<K extends Comparable<K>, V> {
         K key;
         V value;
         Node<K, V> left;

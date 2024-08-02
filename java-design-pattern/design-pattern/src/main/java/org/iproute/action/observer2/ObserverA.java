@@ -4,7 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class ObserverA implements Observer {
 

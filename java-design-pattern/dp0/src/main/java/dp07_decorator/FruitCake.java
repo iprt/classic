@@ -3,7 +3,7 @@ package dp07_decorator;
 /**
  * 真正的装饰
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class FruitCake extends Decorator {
 

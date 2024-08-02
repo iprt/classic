@@ -1,7 +1,7 @@
 package org.iproute.action.observer;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class ConcreteSubject extends Subject {
 

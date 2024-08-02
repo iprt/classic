@@ -3,7 +3,7 @@ package org.iproute.structure.bridge;
 /**
  * 维度1 电脑品牌维度
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface Brand {
 

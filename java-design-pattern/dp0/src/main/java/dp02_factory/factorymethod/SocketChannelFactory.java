@@ -1,7 +1,7 @@
 package dp02_factory.factorymethod;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class SocketChannelFactory implements ChannelFactory {
     @Override

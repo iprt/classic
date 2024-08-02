@@ -10,7 +10,7 @@ import java.util.function.BiConsumer;
 /**
  * AvlTree
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/30
  */
 public class AvlTree<K extends Comparable<K>, V> implements BinarySearchTree<K, V> {

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author :       zhuzhenjie
+ * @author tech@intellij.io
  * 计算图是不是联通的
  **/
 public class Components<Element, Relation extends Comparable> {

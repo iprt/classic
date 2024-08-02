@@ -3,10 +3,10 @@ package org.iproute.structure.bridge;
 /**
  * 电脑类型维度
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Computer {
     protected Brand brand;

@@ -2,7 +2,7 @@ package org.iproute.action.state;
 
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
     public static void main(String[] args) {

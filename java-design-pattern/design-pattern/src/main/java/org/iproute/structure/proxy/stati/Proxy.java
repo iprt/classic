@@ -1,7 +1,7 @@
 package org.iproute.structure.proxy.stati;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Proxy implements Action {
     private Real real;

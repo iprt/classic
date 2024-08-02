@@ -12,7 +12,7 @@ import dp02_factory.abstractFactory.components.detail.Z390Motherboard;
 /**
  * The type Excellent computer.
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class ExcellentComputer implements Computer {
 

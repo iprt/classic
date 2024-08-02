@@ -3,7 +3,7 @@ package dp02_factory.abstractFactory;
 /**
  * The type Main.
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Main {
 

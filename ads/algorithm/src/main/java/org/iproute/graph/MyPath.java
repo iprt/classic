@@ -5,13 +5,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-27
- * Time    :       10:55
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  * <p>
  * 指定源访问寻找路径
  **/

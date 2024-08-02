@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * Created by      Intellij IDEA
  *
- * @author :       zhuzhenjie
+ * @author tech@intellij.io
  * Date    :       2018-12-27
  * Time    :       19:05
  * Version :       1.0

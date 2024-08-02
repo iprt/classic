@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 /**
  * HelloProxy
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/7/13
  */
 public class HelloProxy implements InvocationHandler {

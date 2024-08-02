@@ -1,7 +1,7 @@
 package dp09_template;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class CppWorker extends OneDayWorkTemplate {
     @Override

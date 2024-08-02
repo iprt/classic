@@ -3,7 +3,7 @@ package dp06_command.receiver;
 /**
  * 真正的对象执行的方法
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class AudioPlayer {
 

@@ -10,7 +10,7 @@ import java.util.UUID;
 /**
  * GraphTest
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/12
  */
 public class GraphTest {

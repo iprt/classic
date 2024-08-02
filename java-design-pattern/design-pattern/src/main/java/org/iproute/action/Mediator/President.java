@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class President implements Mediator {
 

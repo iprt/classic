@@ -1,7 +1,7 @@
 package org.iproute.weightGraph;
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-28
  */
 public class PrimMST {

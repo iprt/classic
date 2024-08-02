@@ -9,7 +9,7 @@ import java.util.Set;
  * <p>
  * 对图进行抽象化定义
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/13
  */
 public interface Graph<T, W extends Comparable<W>> {

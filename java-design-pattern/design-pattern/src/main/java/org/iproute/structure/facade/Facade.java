@@ -1,7 +1,7 @@
 package org.iproute.structure.facade;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Facade {
     private SubSystem1 system1;

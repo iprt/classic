@@ -6,7 +6,7 @@ import java.util.Date;
  * 测试原型模式(浅克隆)
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
     public static void main(String[] args) throws Exception {

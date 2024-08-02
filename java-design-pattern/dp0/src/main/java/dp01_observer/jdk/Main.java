@@ -3,7 +3,7 @@ package dp01_observer.jdk;
 import java.util.Observable;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Main {
 

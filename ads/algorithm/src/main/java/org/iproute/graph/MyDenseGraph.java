@@ -4,13 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-26
- * Time    :       15:05
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  **/
 public class MyDenseGraph implements GraphDesign {
 

@@ -1,7 +1,7 @@
 package dp10_state;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class StopState implements State {
 

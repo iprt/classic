@@ -6,7 +6,7 @@ import java.util.Observer;
 /**
  * Observer 为观察者
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class JdkObserver implements Observer {
 

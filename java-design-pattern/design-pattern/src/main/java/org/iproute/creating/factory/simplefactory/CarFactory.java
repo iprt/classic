@@ -4,10 +4,10 @@ package org.iproute.creating.factory.simplefactory;
  * 假单工厂方法
  * 创建不同car的工厂
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class CarFactory {
 

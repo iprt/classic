@@ -2,7 +2,7 @@ package org.iproute.structure.proxy.dynamic;
 
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Real implements Action {
 

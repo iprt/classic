@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  * 基于二分搜索树的改进 原因 二分搜索树可能退化为链表
  * 1. 记录每一个节点的高度 并计算平衡因子
  * 2. 计算是否平衡

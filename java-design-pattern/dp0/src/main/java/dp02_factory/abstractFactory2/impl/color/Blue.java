@@ -5,7 +5,7 @@ import dp02_factory.abstractFactory2.Color;
 /**
  * Blue
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/7/9
  */
 public class Blue implements Color {

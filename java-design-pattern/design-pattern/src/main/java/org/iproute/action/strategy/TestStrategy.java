@@ -10,7 +10,7 @@ package org.iproute.action.strategy;
  */
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class TestStrategy {
     public double getPrice(String type, double price) {

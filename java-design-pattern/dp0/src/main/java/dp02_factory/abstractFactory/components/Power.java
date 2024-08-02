@@ -1,7 +1,7 @@
 package dp02_factory.abstractFactory.components;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface Power {
 

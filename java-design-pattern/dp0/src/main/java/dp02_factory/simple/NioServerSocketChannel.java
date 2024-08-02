@@ -1,7 +1,7 @@
 package dp02_factory.simple;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class NioServerSocketChannel {
 }

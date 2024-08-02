@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Solution
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/2/28
  */
 public class Solution {

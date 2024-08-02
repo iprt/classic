@@ -1,7 +1,7 @@
 package dp03_singleton;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Singleton2 {
 

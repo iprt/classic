@@ -7,7 +7,7 @@ package org.iproute.action.state;
  */
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class CheckedInState implements State {
 

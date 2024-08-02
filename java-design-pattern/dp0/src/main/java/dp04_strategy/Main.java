@@ -5,7 +5,7 @@ import dp04_strategy.stratege.AddStringBeforeStrategy;
 import dp04_strategy.stratege.RemoveSpaceStrategy;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Main {
 

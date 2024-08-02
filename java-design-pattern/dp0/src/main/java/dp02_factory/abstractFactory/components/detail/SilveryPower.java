@@ -3,7 +3,7 @@ package dp02_factory.abstractFactory.components.detail;
 import dp02_factory.abstractFactory.components.Power;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class SilveryPower implements Power {
 

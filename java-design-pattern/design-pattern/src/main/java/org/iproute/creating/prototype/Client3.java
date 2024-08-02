@@ -10,7 +10,7 @@ import java.util.Date;
  * 原型模式(深复制,使用序列化和反序列化的方式实现深复制)
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client3 {
     public static void main(String[] args) throws CloneNotSupportedException, Exception {

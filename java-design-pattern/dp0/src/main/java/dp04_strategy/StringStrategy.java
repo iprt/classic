@@ -1,7 +1,7 @@
 package dp04_strategy;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface StringStrategy {
 

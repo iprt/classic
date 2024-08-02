@@ -14,7 +14,7 @@ import java.util.function.Consumer;
 /**
  * 图的遍历，针对无向图 单联通分量
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/22
  */
 public class Traverse<T, W extends Comparable<W>> {

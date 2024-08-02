@@ -10,7 +10,7 @@ package org.iproute.action.strategy;
  */
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Context {
     private Strategy strategy;    //当前采用的算法对象

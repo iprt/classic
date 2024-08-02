@@ -9,7 +9,7 @@ import java.util.function.BiConsumer;
 /**
  * 二分搜索树
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/30
  */
 public class SimpleBST<K extends Comparable<K>, V> implements BinarySearchTree<K, V> {

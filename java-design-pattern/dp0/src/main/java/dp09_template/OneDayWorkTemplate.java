@@ -3,7 +3,7 @@ package dp09_template;
 /**
  * 模板方法模式 共用的方法抽象出来
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public abstract class OneDayWorkTemplate implements Work {
 

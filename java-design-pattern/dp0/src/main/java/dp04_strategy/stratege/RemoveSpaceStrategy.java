@@ -5,7 +5,7 @@ import dp04_strategy.StringStrategy;
 /**
  * 去除空格的策略
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class RemoveSpaceStrategy implements StringStrategy {
     @Override

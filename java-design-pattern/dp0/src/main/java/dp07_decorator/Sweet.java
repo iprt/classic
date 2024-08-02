@@ -3,7 +3,7 @@ package dp07_decorator;
 /**
  * 统一的抽象描述
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public abstract class Sweet {
 

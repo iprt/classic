@@ -1,10 +1,10 @@
 package org.iproute.structure.bridge;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Client {
     public static void main(String[] args) {

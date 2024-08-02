@@ -3,13 +3,7 @@ package org.iproute.graph;
 import java.util.ArrayList;
 
 /**
- * Created by      Intellij IDEA
- *
- * @author :       zhuzhenjie
- * Date    :       2018-12-26
- * Time    :       15:22
- * Version :       1.0
- * Company :      Beijing Tepia (Wuhan R&D Center)
+ * @author tech@intellij.io
  **/
 public class MySparseGraph implements GraphDesign {
 

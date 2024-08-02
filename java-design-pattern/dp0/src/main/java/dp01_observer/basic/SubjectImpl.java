@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * 主题的实现
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class SubjectImpl implements Subject {
 

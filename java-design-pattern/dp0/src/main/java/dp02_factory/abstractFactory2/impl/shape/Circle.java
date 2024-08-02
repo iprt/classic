@@ -5,7 +5,7 @@ import dp02_factory.abstractFactory2.Shape;
 /**
  * Circle
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2021/7/9
  */
 public class Circle implements Shape {

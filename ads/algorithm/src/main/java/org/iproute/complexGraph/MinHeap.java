@@ -1,7 +1,7 @@
 package org.iproute.complexGraph;
 
 /**
- * @author :       zhuzhenjie
+ * @author tech@intellij.io
  **/
 public class MinHeap<Item extends Comparable> {
 

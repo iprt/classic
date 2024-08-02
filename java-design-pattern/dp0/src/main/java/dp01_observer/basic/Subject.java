@@ -3,7 +3,7 @@ package dp01_observer.basic;
 /**
  * 主题，同样也是被观察者
  *
- * @author winterfell
+ * @author tech@intellij.io
  */
 public interface Subject {
 

@@ -2,7 +2,7 @@ package dp01_observer.basic2;
 
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class ListenerImpl1 implements Listener {
 

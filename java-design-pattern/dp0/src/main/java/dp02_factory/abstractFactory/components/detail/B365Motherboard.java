@@ -3,7 +3,7 @@ package dp02_factory.abstractFactory.components.detail;
 import dp02_factory.abstractFactory.components.Motherboard;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class B365Motherboard implements Motherboard {
     @Override

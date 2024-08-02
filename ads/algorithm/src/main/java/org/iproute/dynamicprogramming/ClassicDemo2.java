@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author zzj
+ * @author tech@intellij.io
  * @create 2018-5-25
  * 背包问题动态规划
  */

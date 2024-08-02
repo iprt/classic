@@ -1,7 +1,7 @@
 package dp05_adapter.basic;
 
 /**
- * @author winterfell
+ * @author tech@intellij.io
  */
 public class Adapter implements Target {
 

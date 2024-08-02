@@ -3,7 +3,7 @@ package org.iproute.classic.graph.define;
 /**
  * 定义图中的点
  *
- * @author winterfell
+ * @author tech@intellij.io
  * @since 2022/6/13
  */
 public class Vertex<T> implements Namespace {
