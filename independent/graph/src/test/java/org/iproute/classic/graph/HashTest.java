@@ -1,6 +1,6 @@
 package org.iproute.classic.graph;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -64,9 +64,9 @@ public class HashTest {
         @Override
         public String toString() {
             return "Hello{" +
-                    "namespace='" + namespace + '\'' +
-                    ", name='" + name + '\'' +
-                    '}';
+                   "namespace='" + namespace + '\'' +
+                   ", name='" + name + '\'' +
+                   '}';
         }
     }
 

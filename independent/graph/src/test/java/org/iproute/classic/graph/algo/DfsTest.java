@@ -3,7 +3,7 @@ package org.iproute.classic.graph.algo;
 import org.iproute.classic.graph.define.Graph;
 import org.iproute.classic.graph.define.Vertex;
 import org.iproute.classic.graph.define.sparse.SparseGraph;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
 

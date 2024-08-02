@@ -1,8 +1,8 @@
 package org.iproute.classic.tree.test;
 
 import org.iproute.classic.tree.avl.AvlTree;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.BiConsumer;
 
@@ -53,9 +53,9 @@ public class AvlTreeTest {
 
         boolean balanced = tree.isBalanced();
 
-        Assert.assertTrue(isBST);
+        Assertions.assertTrue(isBST);
 
-        Assert.assertTrue(balanced);
+        Assertions.assertTrue(balanced);
 
     }
 
@@ -76,9 +76,9 @@ public class AvlTreeTest {
 
         boolean balanced = tree.isBalanced();
 
-        Assert.assertTrue(isBST);
+        Assertions.assertTrue(isBST);
 
-        Assert.assertTrue(balanced);
+        Assertions.assertTrue(balanced);
 
     }
 
@@ -98,9 +98,9 @@ public class AvlTreeTest {
 
         boolean balanced = tree.isBalanced();
 
-        Assert.assertTrue(isBST);
+        Assertions.assertTrue(isBST);
 
-        Assert.assertTrue(balanced);
+        Assertions.assertTrue(balanced);
     }
 
     @Test
@@ -119,9 +119,9 @@ public class AvlTreeTest {
 
         boolean balanced = tree.isBalanced();
 
-        Assert.assertTrue(isBST);
+        Assertions.assertTrue(isBST);
 
-        Assert.assertTrue(balanced);
+        Assertions.assertTrue(balanced);
     }
 
 
@@ -141,8 +141,8 @@ public class AvlTreeTest {
         System.out.println("length = " + avl.size());
         System.out.println("isBalanced = " + avl.isBalanced());
 
-        Assert.assertEquals(max, avl.size());
-        Assert.assertTrue(avl.isBalanced());
+        Assertions.assertEquals(max, avl.size());
+        Assertions.assertTrue(avl.isBalanced());
 
         for (int i = 1; i <= max; i++) {
             avl.delete(i);
@@ -150,7 +150,7 @@ public class AvlTreeTest {
         System.out.println("after delete ... ");
         System.out.println("length = " + avl.size());
 
-        Assert.assertEquals(0, avl.size());
+        Assertions.assertEquals(0, avl.size());
 
     }
 
@@ -167,7 +167,7 @@ public class AvlTreeTest {
 
 
     @Test
-    public void testDFS(){
+    public void testDFS() {
         int max = 1 << 5;
         AvlTree<Integer, String> avl = new AvlTree<>();
         for (int i = 1; i <= max; i++) {
