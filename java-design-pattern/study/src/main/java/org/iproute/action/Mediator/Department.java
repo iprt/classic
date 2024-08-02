@@ -1,7 +1,7 @@
 package org.iproute.action.Mediator;
 
 /**
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  **/
 //同事类的接口
 public interface Department {

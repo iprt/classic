@@ -1,8 +1,8 @@
 package org.iproute.action.chain;
 
 /**
- * @author : zhuzhenjie
- **/
+ * @author tech@intellij.io
+ */
 public interface Leader {
     void handlerReq(LeaveRequest req);
 }

@@ -1,7 +1,7 @@
 package org.iproute.structure.proxy.dynamic;
 
 /**
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  **/
 public interface Action {
     void func1();

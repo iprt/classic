@@ -1,12 +1,6 @@
 package org.iproute.action.memento;
 
 /**
- * 源发器类
- *
- * @author : zhuzhenjie
- **/
-
-/**
  * @author tech@intellij.io
  */
 public class Emp {

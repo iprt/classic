@@ -1,7 +1,7 @@
 package org.iproute.action.command;
 
 /**
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  **/
 public interface Command {
     /**

@@ -3,10 +3,6 @@ package org.iproute.action.memento;
 /**
  * 备忘录类
  *
- * @author zhuzhenjie
- */
-
-/**
  * @author tech@intellij.io
  */
 public class EmpMemento {

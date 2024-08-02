@@ -4,7 +4,7 @@ package org.iproute.action.memento;
  * 负责人类
  * 负责管理备忘录对象
  *
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  **/
 
 /**

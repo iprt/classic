@@ -3,7 +3,7 @@ package org.iproute.complexGraph;
 import org.iproute.complexGraph.define.Graph;
 
 /**
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  * 最小生成树算法
  **/
 public class LazyPrim {

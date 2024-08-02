@@ -1,7 +1,7 @@
 package org.iproute.action.iterator;
 
 /**
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  **/
 public interface MyIterator {
     void first();

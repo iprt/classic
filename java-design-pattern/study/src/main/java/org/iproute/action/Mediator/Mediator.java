@@ -3,7 +3,7 @@ package org.iproute.action.Mediator;
 /**
  * 中介者
  *
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  **/
 public interface Mediator {
 

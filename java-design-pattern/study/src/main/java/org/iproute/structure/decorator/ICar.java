@@ -1,7 +1,7 @@
 package org.iproute.structure.decorator;
 
 /**
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  **/
 public interface ICar {
     void move();

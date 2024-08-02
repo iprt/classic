@@ -5,7 +5,7 @@ import java.util.Observable;
 /**
  * 目标对象
  *
- * @author : zhuzhenjie
+ * @author tech@intellij.io
  **/
 
 /**
