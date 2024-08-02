@@ -1,8 +1,8 @@
 rootProject.name = 'classic'
 
-include('ads:alchemy')
-include('ads:algorithm')
-include('ads:data-structure')
+include('z-ads-bak:alchemy')
+include('z-ads-bak:algorithm')
+include('z-ads-bak:data-structure')
 include('java-design-pattern:common-used')
 include('java-design-pattern:study')
 include('independent:graph')
