@@ -14,8 +14,7 @@ import java.util.function.BiConsumer;
  */
 public class AvlTreeTest {
 
-    private static BiConsumer<Integer, String> PRINT = (k, v) -> System.out.printf("k = %d, v = %s%n", k, v);
-
+    private static final BiConsumer<Integer, String> PRINT_FUNC = (k, v) -> System.out.printf("k = %d, v = %s%n", k, v);
 
     @Test
     public void testAdd() {
@@ -26,7 +25,7 @@ public class AvlTreeTest {
             tree.add(i, String.valueOf(i));
         }
 
-        tree.bfs(PRINT);
+        tree.bfs(PRINT_FUNC);
 
         boolean isBST = tree.isBST();
         System.out.println("is BST = " + isBST);
@@ -47,7 +46,7 @@ public class AvlTreeTest {
         tree.add(1, "111");
 
 
-        tree.bfs(PRINT);
+        tree.bfs(PRINT_FUNC);
 
         boolean isBST = tree.isBST();
 
@@ -70,7 +69,7 @@ public class AvlTreeTest {
         tree.add(2, "222");
         tree.add(1, "111");
 
-        tree.bfs(PRINT);
+        tree.bfs(PRINT_FUNC);
 
         boolean isBST = tree.isBST();
 
@@ -92,7 +91,7 @@ public class AvlTreeTest {
         tree.add(1, "111");
         tree.add(2, "222");
 
-        tree.bfs(PRINT);
+        tree.bfs(PRINT_FUNC);
 
         boolean isBST = tree.isBST();
 
@@ -113,7 +112,7 @@ public class AvlTreeTest {
         tree.add(3, "333");
         tree.add(2, "222");
 
-        tree.bfs(PRINT);
+        tree.bfs(PRINT_FUNC);
 
         boolean isBST = tree.isBST();
 
@@ -162,7 +161,7 @@ public class AvlTreeTest {
         for (int i = 1; i <= max; i++) {
             avl.add(i, String.valueOf(i));
         }
-        avl.bfs(PRINT);
+        avl.bfs(PRINT_FUNC);
     }
 
 
@@ -173,7 +172,7 @@ public class AvlTreeTest {
         for (int i = 1; i <= max; i++) {
             avl.add(i, String.valueOf(i));
         }
-        avl.bfs(PRINT);
+        avl.bfs(PRINT_FUNC);
     }
 
 }

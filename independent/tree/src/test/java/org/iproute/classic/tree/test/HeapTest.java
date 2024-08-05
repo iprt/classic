@@ -2,7 +2,7 @@ package org.iproute.classic.tree.test;
 
 import org.iproute.classic.tree.Heap;
 import org.iproute.classic.tree.heap.FixLengthMaxHeap;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * HeapTest

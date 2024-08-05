@@ -2,8 +2,8 @@ package org.iproute.classic.tree.test;
 
 import org.iproute.classic.tree.BinarySearchTree;
 import org.iproute.classic.tree.general.SimpleBST;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.BiConsumer;
 
@@ -61,12 +61,12 @@ public class SimpleBSTTest {
         bst.add(4, "444");
 
         String s = bst.get(4);
-        Assert.assertEquals("444", s);
+        Assertions.assertEquals("444", s);
 
 
         bst.add(4, "DDD");
         s = bst.get(4);
-        Assert.assertEquals("DDD", s);
+        Assertions.assertEquals("DDD", s);
     }
 
 
@@ -83,9 +83,9 @@ public class SimpleBSTTest {
         Integer min = bst.min();
         Integer max = bst.max();
 
-        Assert.assertArrayEquals(new int[]{1}, new int[]{min});
+        Assertions.assertArrayEquals(new int[]{1}, new int[]{min});
 
-        Assert.assertArrayEquals(new int[]{4}, new int[]{max});
+        Assertions.assertArrayEquals(new int[]{4}, new int[]{max});
     }
 
 
